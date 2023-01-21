@@ -1,0 +1,125 @@
+@import '_vars';
+
+.main-header {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: var(--main-bg-color);
+}
+.main-header-container {
+    width: 100%;
+    display: flex;
+    background-color: var(--white);
+    margin-top: 48px;
+    box-shadow: 0px -4px 0px 4px rgb(0 0 0 / 10%);
+    padding: 0 20px;
+}
+
+.top-header-container {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+}
+
+#logo {
+    height: 40px;
+    margin-right: 16px;
+}
+
+.left-side img:hover {
+    transform: rotate(360deg);
+    transition: 2s transform;
+}
+
+.top-header-container h1 {
+    font-size: 28px;
+}
+
+.left-side {
+    display: flex;
+    align-items: center;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: end;
+    height: 100%;
+    align-items: center;
+}
+
+.right-side i {
+
+}
+
+.right-side i svg {
+    width: 24px;
+    height: 24px;
+}
+
+.bottom-header-container {
+	width: 100vw;
+    background-color: var(--gray);
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.bottom-header-container .left-side {
+
+}
+
+.left-side ul {
+    display: flex;
+    list-style: none;
+    justify-content: start;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.left-side ul li {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    margin: 0 8px;
+}
+
+.left-side ul li:nth-child(1) {
+    font-size: 10px;
+    margin-left: 0;
+}
+
+.main-header-right {
+    display: flex;
+    position: absolute;
+    right: 0;
+    margin-top: 48px;
+    align-items: center;
+}
+
+
+.main-header-right i {
+    display: flex;
+    min-height: 60px;
+    min-width: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-header-right i:hover {
+    background-color: var(--purple);
+    transition: .3s background-color;
+    color:white;
+}
+
+.main-header-right i svg {
+    height: 24px;
+    width: 24px;
+}
+
+@media all and (max-width: 599px) {
+    .bottom-header-container {
+        display: none;
+    }
+}

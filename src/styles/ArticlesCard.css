@@ -1,0 +1,68 @@
+@import '_vars';
+
+.articles-card-container {
+	cursor: pointer;
+	width: 220px;
+	height: 360px;
+	background-color: var(--white);
+	margin-right: 16px;
+	border-radius: 4px;
+}
+
+.articles-card-container:hover {
+	background-color: var(--black);
+	color: white;
+	padding: 4px;
+	transition: .2s padding;
+}
+
+.articles-card-container:last-child {
+}
+
+.articles-card {
+
+}
+
+.articles-card-top {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 220px;
+	border-bottom: 1px solid var(--dark-gray);
+}
+
+.articles-card-top img {
+	width: 200px;
+}
+
+.articles-card-bottom {
+	height: 100px;
+	margin: 16px 0 0 16px;
+}
+
+.money {
+	display: flex;
+}
+
+.articles-card-bottom h3 {
+	font-size: 24px;
+	font-weight: 400;
+	margin: 0;
+}
+
+.articles-card-bottom .discount {
+	font-weight: 500;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	margin: 0 0 0 8px;
+	color: var(--main-bg-color);
+}
+
+.shipping {
+	display: block;
+	font-weight: 600;
+	font-size: 13px;
+	color: var(--main-bg-color);
+	margin-top: 4px;
+}

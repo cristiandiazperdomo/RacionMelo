@@ -1,0 +1,71 @@
+@import '_vars';
+
+.banner {
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    max-height: 100vh;
+    padding: 40px 0;
+    margin: 20px 12px 12px;
+    box-sizing: border-box;
+}
+
+.banner-right-side {
+    box-sizing: border-box;
+    height: 50vh;
+}
+
+.banner-right-side img {
+    text-align: center;
+    border-radius: 12px;
+    height: 50vh;
+}
+
+.banner-left-side {
+    box-sizing: border-box;
+    height: 50vh;
+    padding: 0 56px;
+}
+
+.banner-left-side h2 {
+    margin: 16px 0;
+    font-size: 48px;
+    font-weight: 800;
+}
+
+.banner-left-side p {
+    font-weight: 500;
+    margin: 0;
+}
+
+.banner-left-side button {
+    box-shadow: 4px 4px 0px 0px rgb(249 166 40 / 30%);
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    background-color: var(--orange);
+    border: none;
+    padding: 8px;
+    height: 36px;
+    cursor: pointer;
+}
+
+.banner-left-side button:hover {
+    padding: 12px;
+    transition: .3s padding;
+}
+
+@media all and (max-width: 360px) {
+    .banner {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .banner-left-side {
+        width: 100%;
+        padding: 0 24px;
+    }
+}
