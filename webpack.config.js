@@ -6,7 +6,6 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, "dist"),
 	},
-	mode: 'development',
 	module: {
 		rules: [
 			{
@@ -29,7 +28,7 @@ module.exports = {
 				test: /\.(jpe?g|png|gif|svg)$/i, 
 				loader: 'file-loader',
 				options: {
-					  name: 'src/assets/icons/[name].[ext]'
+					  name: 'src/assets/banners/[name].[ext]'
 				}
 			}
 		]
@@ -43,8 +42,4 @@ module.exports = {
 			filename: '[name].css',
 		})
 	],
-	devServer: {
-		port: 3001,
-    	hot: true,
-	}
 }
