@@ -59,7 +59,7 @@
 
 @media all and (max-width: 540px) {
     .categories-card-container {
-        width: 100%;
+        min-width: 100%;
 
     }
 }
