@@ -16,10 +16,11 @@
     position: absolute;
     justify-content: space-between;
     width: 100%;
-	height: 60px;
-    margin-left: -20px;
+    height: 60px;
+    margin-left: -10px;
     margin-top: 140px;
-	align-items: center;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .articles-cards-container svg {
