@@ -23,10 +23,15 @@
     height: 50vh;
 }
 
-.banner-left-side {
-    box-sizing: border-box;
+.banner-left-side-container {
     height: 50vh;
+    display: flex;
     padding: 0 56px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.banner-left-side {
 }
 
 .banner-left-side h2 {
@@ -58,6 +63,25 @@
     transition: .3s padding;
 }
 
+.banner-border {
+    display: none;
+}
+
+@media all and (max-width: 768px) {
+    .banner-border {
+        display: block;
+        border: 1px solid var(--gray);
+        width: 100%;        
+    }
+}
+@media all and (max-width: 420px) {
+    .banner-border {
+        display: none;
+    }
+    .banner-left-side-container {
+        padding: 0 24px;
+    }
+}
 @media all and (max-width: 360px) {
     .banner {
         width: 100%;
@@ -66,6 +90,5 @@
     }
     .banner-left-side {
         width: 100%;
-        padding: 0 24px;
     }
 }

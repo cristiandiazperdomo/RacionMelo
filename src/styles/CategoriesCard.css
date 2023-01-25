@@ -2,10 +2,9 @@
 
 .categories-card-container {
 	border-radius: 12px;
-	width: 420px;
+	min-width: 350px;
 	height: 200px;
 	background-color: var(--white);
-	margin-bottom: 16px;
 	cursor: pointer;
 }
 
@@ -39,6 +38,7 @@
     text-align: center;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 
 .categories-card-bottom h3 {
@@ -53,7 +53,7 @@
 
 @media all and (max-width: 755px) {
 	.categories-card-container {
-		width: 324;
+		width: 100%;
 	}
 }
 
