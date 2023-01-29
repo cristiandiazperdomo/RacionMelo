@@ -2,15 +2,17 @@
 
 .categories-card-container {
 	border-radius: 12px;
-	min-width: 350px;
 	height: 200px;
 	background-color: var(--white);
 	cursor: pointer;
+	margin: 4px;
 }
 
 .categories-card-container:hover {
-	background-color: var(--black);
+	background-color: var(--orange);
 	color: var(--white);
+	padding: 4px;
+	transition: .20s padding;
 }
 
 .categories-card {

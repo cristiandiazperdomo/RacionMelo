@@ -2,7 +2,7 @@
 
 .main-footer {
 	color: white;
-	padding: 50px;
+	padding: 160px;
 	background-color: var(--main-bg-color);
 }
 
@@ -15,4 +15,10 @@
 
 .main-footer-p {
 
+}
+
+@media all and (max-width: 420px) {
+	.main-footer {
+		padding: 80px;
+	}
 }

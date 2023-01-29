@@ -25,6 +25,16 @@ const useArrayCategories = () => {
         img: img4,
         typeFood: "Cocodrilos",
         description: "Cómida para Cocodrilos adultos, jóvenes o crias",
+    },{
+        id: 5,
+        img: img,
+        typeFood: "Perros",
+        description: "Comida para Perros adultos, jóvenes o crias",
+    }, {
+        id: 6,
+        img: img2,
+        typeFood: "Gatos",
+        description: "Cómida para Gatos adultos, jóvenes o crias",
     }, ];
 
     return {

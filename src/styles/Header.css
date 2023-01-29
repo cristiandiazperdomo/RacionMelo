@@ -108,9 +108,9 @@
 }
 
 .main-header-right i:hover {
-    background-color: var(--purple);
+    background-color: var(--orange);
     transition: .3s background-color;
-    color:white;
+    color: white;
 }
 
 .main-header-right i svg {

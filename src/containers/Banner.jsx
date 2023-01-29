@@ -1,5 +1,5 @@
 import React from 'react';
-import bannerImage from '../assets/banners/dogeating2.png';
+import bannerImage from '../assets/banners/picture.png';
 import '../styles/Banner.css';
 
 const Banner = () => {
@@ -16,6 +16,8 @@ const Banner = () => {
 					<p>
 						COMPRA LOS MEJORES ALIMENTOS
 						PARA CUALQUIER ANIMAL, EN EL
+						MEJOR SITIO WEB DE MELO, CERRO
+						LARGO, EN EL
 						MEJOR SITIO WEB DE MELO, CERRO
 						LARGO.
 					</p>

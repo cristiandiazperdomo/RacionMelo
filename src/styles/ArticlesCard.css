@@ -7,11 +7,10 @@
 	background-color: var(--white);
 	margin-right: 16px;
 	border-radius: 4px;
+	box-sizing: border-box;
 }
 
 .articles-card-container:hover {
-	background-color: var(--black);
-	color: white;
 	padding: 4px;
 	transition: .2s padding;
 }
