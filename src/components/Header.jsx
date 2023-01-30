@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logos/dogicon2.png';
 import '../styles/Header.css';
 
@@ -16,21 +17,27 @@ const Header = () => {
 							</h1>
 						</div>
 					</div>
-					{/*<div className="bottom-header-container"> 
+					<div className="bottom-header-container"> 
 						<div className="left-side">
 							<ul>
 								<li>
-									¿Quíenes somos?		
+									<Link to="/">
+										¿Como vender?		
+									</Link>
 								</li>
 								<li>
-									¿Como comprar?		
+									<Link to="/">		
+										Registrarse	
+									</Link>
 								</li>
 								<li>
-									¿Como vender?		
+									<Link to="/">		
+										Entrar		
+									</Link>
 								</li>
 							</ul>
 						</div>
-					</div>*/}
+					</div>
 				</div> 
 			</div>
 			<div className="main-header-right">
