@@ -1,0 +1,101 @@
+@import '_vars';
+
+.login-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 60px 0;
+}
+
+.login {
+	background: url(https://i.imgur.com/xvSKlYi.png);
+	background-size: cover;
+	font-size: 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 320px;
+	width: 400px;
+	padding: 20px 32px;
+	box-sizing: border-box;
+}
+
+.login-header {
+	text-align: right;
+}
+
+.login-header h3 {
+	color: var(--white);
+	font-size: 20px;
+	margin: 0;
+}
+
+.form-login {
+	display: flex;
+	flex-direction: column;
+	margin-top: -24px;
+}
+
+.form-login-info {
+	display: flex;
+}
+
+.form-login-icon {
+	display: flex;
+    align-items: flex-end;
+    font-size: 28px;
+    margin-right: 8px;
+}
+
+.form-login-icon svg {
+    margin-top: -1px;
+}
+
+.form-login-input {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-login-input label {
+	cursor: pointer;
+	padding: 0 0 0 4px;
+}
+
+.form-login-input label:nth-child(1) {
+	margin-top: 24px;
+}
+
+.form-login-input input {
+	font-size: 14px;
+	border: none;
+	border-bottom: 1px solid var(--black);
+	background-color: transparent;
+	padding: 4px 4px 4px 4px;
+}
+
+.form-login-input input:focus {
+	outline: none;
+}
+
+.login-footer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.login-footer div {
+}
+
+.login-footer p {
+	cursor: pointer;
+	color: var(--black);
+	font-size: 10px;
+	margin-left: 36px;
+}
+
+.login-footer button {
+	background-color: var(--orange);
+	color: var(--white);
+	border: none;
+	border-radius: 8px;
+	padding: 8px 20px;
+}

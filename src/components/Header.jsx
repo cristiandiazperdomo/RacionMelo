@@ -19,7 +19,7 @@ const Header = () => {
 					</div>
 					<div className="bottom-header-container"> 
 						<div className="left-side">
-							<ul>
+							<ul className="ul-main-header">
 								<li>
 									<Link to="/">
 										¿Como vender?		
@@ -31,7 +31,7 @@ const Header = () => {
 									</Link>
 								</li>
 								<li>
-									<Link to="/">		
+									<Link to="/login">		
 										Entrar		
 									</Link>
 								</li>

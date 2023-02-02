@@ -32,10 +32,10 @@
 }
 
 .articles-cards-container svg:hover {
-	background-color: var(--black);
+	background-color: var(--orange);
 	color: var(--white);
-	transition: .1s background-color;
-	transition: .25s color;
+	transition: .2s background-color;
+	transition: .2s color;
 }
 
 .articles-cards {

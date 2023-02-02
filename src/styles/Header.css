@@ -81,6 +81,10 @@
     height: 100%;
 }
 
+.left-side ul li:nth-child(1) {
+    margin-left: 0;
+}
+
 .left-side ul li {
     width: 80px;
     text-align: left;
@@ -88,24 +92,26 @@
     font-size: 12px;
 }
 
-.left-side ul li:hover {
+
+.ul-main-header li:hover {
+    color: var(--white);
+    height: 100%;
     background-color: var(--orange);
     transition: .2s background-color;
-    color: white;
-    height: 100%;
+}
+
+.ul-main-header li a:hover {
+    color: var(--white);
+    transition: .2s color;
 }
 
 .left-side ul li a {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
     text-decoration: none;
     color: var(--black);
-}
-
-.left-side ul li:nth-child(1) {
-    margin-left: 0;
 }
 
 .main-header-right {
