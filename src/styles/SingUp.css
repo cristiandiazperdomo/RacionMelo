@@ -1,6 +1,6 @@
 @import '_vars';
 
-.login-container {
+.singup-container {
 	background: url(https://i.imgur.com/uV07DHu.png);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -10,7 +10,7 @@
 	padding-top: 60px;
 }
 
-.login {
+.singup {
 	background: url(https://i.imgur.com/otvuWcz.png);
 	background-size: cover;
 	font-size: 12px;
@@ -23,54 +23,54 @@
 	box-sizing: border-box;
 }
 
-.login-header {
+.singup-header {
 	text-align: right;
 }
 
-.login-header h3 {
+.singup-header h3 {
 	color: var(--white);
 	font-size: 20px;
 	margin: 0;
 }
 
-.form-login {
+.form-singup {
 	display: flex;
 	flex-direction: column;
 	margin-top: -24px;
 }
 
-.form-login-info {
+.form-singup-info {
 	display: flex;
 }
 
-.form-login-icon {
+.form-singup-icon {
 	display: flex;
     align-items: flex-end;
     font-size: 28px;
     margin-right: 8px;
 }
 
-.form-login-icon svg {
+.form-singup-icon svg {
     margin-top: -1px;
 }
 
-.form-login-input {
+.form-singup-input {
 	display: flex;
 	flex-direction: column;
 	width: 240px;
 }
 
-.form-login-input label {
+.form-singup-input label {
 	width: 60px;
 	cursor: pointer;
 	padding: 0 0 0 4px;
 }
 
-.form-login-input label:nth-child(1) {
+.form-singup-input label:nth-child(1) {
 	margin-top: 24px;
 }
 
-.form-login-input input {
+.form-singup-input input {
 	font-size: 14px;
 	border: none;
 	border-bottom: 1px solid var(--black);
@@ -78,26 +78,27 @@
 	padding: 4px 4px 4px 4px;
 }
 
-.form-login-input input:focus {
+.form-singup-input input:focus {
 	outline: none;
 }
 
-.login-footer {
+.singup-footer {
 	display: flex;
-	justify-content: space-between;
+    justify-content: flex-end;
+    align-items: baseline;
 }
 
-.login-footer div {
+.singup-footer div {
 }
 
-.login-footer p {
+.singup-footer p {
 	cursor: pointer;
 	color: var(--black);
 	font-size: 10px;
-	margin-left: 36px;
+	margin-right: 20px;
 }
 
-.login-footer button {
+.singup-footer button {
 	cursor: pointer;
 	background-color: var(--orange);
 	color: var(--white);

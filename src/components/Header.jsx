@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import Search from './Search.jsx';
 import logo from '../assets/logos/dogicon2.png';
 import '../styles/Header.css';
 
@@ -17,6 +18,7 @@ const Header = () => {
 							</h1>
 						</div>
 					</div>
+					<Search />
 					<div className="bottom-header-container"> 
 						<div className="left-side">
 							<ul className="ul-main-header">
@@ -26,7 +28,7 @@ const Header = () => {
 									</Link>
 								</li>
 								<li>
-									<Link to="/">		
+									<Link to="/singup">		
 										Registrarse	
 									</Link>
 								</li>
