@@ -1,81 +1,72 @@
 @import '_vars';
 
 .singup-container {
-	background: url(https://i.imgur.com/uV07DHu.png);
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 100vh;
 	display: flex;
 	justify-content: center;
-	padding-top: 60px;
+	align-items: center;
+	background-color: var(--gray);
+	height: 100vh;
+	margin-top: -20px;
 }
 
+.singup-container input {
+    font-family: 'Dosis', sans-serif;
+}
+
+
 .singup {
-	background: url(https://i.imgur.com/otvuWcz.png);
-	background-size: cover;
+	height: 660px;
+	width: 460px;
 	font-size: 12px;
-	display: flex;
+	padding: 20px 60px;
+	background-color: var(--white);
 	flex-direction: column;
 	justify-content: space-between;
-	height: 400px;
-	width: 580px;
-	padding: 20px 32px;
 	box-sizing: border-box;
 }
 
 .singup-header {
-	text-align: right;
+
 }
 
 .singup-header h3 {
-	color: var(--white);
+	color: var(--orange);
 	font-size: 20px;
-	margin: 0;
+	margin: 32px 0 24px;
 }
 
 .form-singup {
-	display: flex;
-	flex-direction: column;
-	margin-top: -24px;
+
 }
 
 .form-singup-info {
 	display: flex;
+	margin: 16px 0;
 }
 
 .form-singup-icon {
-	display: flex;
-    align-items: flex-end;
-    font-size: 28px;
-    margin-right: 8px;
-}
 
-.form-singup-icon svg {
-    margin-top: -1px;
 }
 
 .form-singup-input {
 	display: flex;
 	flex-direction: column;
-	width: 240px;
+	width: 100%;
 }
 
 .form-singup-input label {
-	width: 60px;
 	cursor: pointer;
-	padding: 0 0 0 4px;
-}
-
-.form-singup-input label:nth-child(1) {
-	margin-top: 24px;
+	color: rgba(0, 0, 0, .4);
+	font-weight: 700;
+	font-size: 12px;
+	margin-bottom: 4px;
 }
 
 .form-singup-input input {
-	font-size: 14px;
+	font-size: 16px;
 	border: none;
-	border-bottom: 1px solid var(--black);
-	background-color: transparent;
-	padding: 4px 4px 4px 4px;
+	background-color: var(--gray);
+	padding: 8px;
 }
 
 .form-singup-input input:focus {
@@ -83,26 +74,42 @@
 }
 
 .singup-footer {
+
+}
+
+.footer-options {
 	display: flex;
-    justify-content: flex-end;
-    align-items: baseline;
+	justify-content: space-between;
 }
 
-.singup-footer div {
+.footer-options a {
+	text-decoration: none;
+	color: var(--orange);
 }
 
-.singup-footer p {
+.remember-me {
+	display: flex;
+}
+
+.remember-me input {
+	display: flex;
+	align-items: top;
+	margin: 0 8px 0 0;
+}
+
+.remember-me label {
 	cursor: pointer;
-	color: var(--black);
-	font-size: 10px;
-	margin-right: 20px;
 }
 
-.singup-footer button {
-	cursor: pointer;
+.singup-send-info {
+	margin: 24px 0 32px 0;
+}
+
+.singup-send-info button {
+	font-weight: 500;
+	padding: 8px 0;
+	width: 100%;
+	border: none;
 	background-color: var(--orange);
 	color: var(--white);
-	border: none;
-	border-radius: 8px;
-	padding: 8px 20px;
 }

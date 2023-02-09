@@ -1,14 +1,27 @@
 import React from 'react';
-import Header from '../components/Header.jsx'
-import Footer from '../components/Footer.jsx'
+import { useLocation } from 'react-router-dom';
+import Header from '../components/Header.jsx';
+import Footer from '../components/Footer.jsx';
 import '../styles/Layaout.css';
 
 const Layaout = ({ children }) => {
+	const location = useLocation();
+	console.log(location.pathname)
+
 	return (
 		<>
-			<Header className="Layaout" />
+			{location.pathname === '/login' || location.pathname === '/singup' 
+			? 
+			<>
 				{children}
-			<Footer />
+			</>
+			:
+			<> 
+				<Header className="Layaout" />
+					{children}
+				<Footer />
+			</>
+			}
 		</>
 	)
 }
