@@ -14,12 +14,7 @@ const Banner = () => {
 						Fod Fool
 					</h2>
 					<p>
-						COMPRA LOS MEJORES ALIMENTOS
-						PARA CUALQUIER ANIMAL, EN EL
-						MEJOR SITIO WEB DE MELO, CERRO
-						LARGO, EN EL
-						MEJOR SITIO WEB DE MELO, CERRO
-						LARGO.
+						Alimentando y entreteniendo a tus mejores amigos, en línea.
 					</p>
 					<button>
 						Mejores precios

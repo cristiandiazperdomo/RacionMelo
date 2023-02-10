@@ -7,7 +7,6 @@
 	display: flex;
 	position: absolute;
 	top: -60px;
-/*	top: 48px;*/
 	background-color: var(--white);
 	box-sizing: border-box;
 }

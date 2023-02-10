@@ -5,7 +5,15 @@
 	height: 200px;
 	background-color: var(--white);
 	cursor: pointer;
-	margin: 8px;
+	margin: 8px 8px;
+}
+
+.categories-card-container:nth-child(-3n+9) { /*PAIR NUMBERS*/
+	margin-right: 0px;
+}
+
+.categories-card-container:nth-child(-1n+9) { /*PAIR NUMBERS*/
+	margin-left: 0px;
 }
 
 .categories-card-container:hover {
@@ -44,7 +52,7 @@
 }
 
 .categories-card-bottom h3 {
-	font-weight: 600;
+	font-weight: 500;
 	margin-top: 4px;
 }
 
@@ -53,8 +61,21 @@
 	margin-top: 4px;
 }
 
+@media all and (max-width: 1024px) {
+
+	.categories-card-container:nth-of-type(odd) { /*PAIR NUMBERS*/
+		margin: 8px 8px 8px 0;
+	}
+
+	.categories-card-container:nth-of-type(even) {
+		margin: 8px 0 8px 8px;
+	}
+}
+
 @media all and (max-width: 755px) {
-	.categories-card-container {
+	.categories-card-container:nth-of-type(odd),
+	.categories-card-container:nth-of-type(even) {
+    	margin: 8px 0;
 	}
 }
 
