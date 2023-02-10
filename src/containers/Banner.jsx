@@ -13,7 +13,7 @@ const Banner = () => {
 					<h2>
 						Fod Fool
 					</h2>
-					<p>
+					<p className="banner-eslogan">
 						Alimentando y entreteniendo a tus mejores amigos, en línea.
 					</p>
 					<button>
