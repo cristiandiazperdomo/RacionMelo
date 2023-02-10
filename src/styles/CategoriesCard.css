@@ -55,13 +55,10 @@
 
 @media all and (max-width: 755px) {
 	.categories-card-container {
-		width: 100%;
 	}
 }
 
 @media all and (max-width: 540px) {
     .categories-card-container {
-        min-width: 100%;
-
     }
 }

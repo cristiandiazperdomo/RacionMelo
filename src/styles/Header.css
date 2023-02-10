@@ -1,12 +1,16 @@
 @import '_vars';
 
 .main-header {
+    background-color: var(--main-bg-color);
+}
+
+.main-header-menu {
     display: flex;
     align-items: center;
     height: 100%;
     box-sizing: border-box;
-    background-color: var(--main-bg-color);
 }
+
 .main-header-container {
     width: 100%;
     display: flex;
@@ -140,6 +144,15 @@
 .main-header-right i svg {
     height: 24px;
     width: 24px;
+}
+
+@media all and (max-width: 767px) {
+    .bottom-header-container {
+        display: none;
+    }
+    .main-header-right {
+        display: flex;
+    }
 }
 
 @media all and (max-width: 640px) {
