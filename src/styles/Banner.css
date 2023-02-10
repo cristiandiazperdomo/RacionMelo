@@ -14,14 +14,12 @@
 
 .banner-right-side {
     box-sizing: border-box;
-    height: 50vh;
 }
 
 .banner-right-side img {
     text-align: center;
     border-radius: 12px;
-    height: 50vh;
-    width: 480px;
+    width: 360px;
 }
 
 .banner-left-side-container {
@@ -111,7 +109,6 @@
     .banner-right-side img {
         text-align: center;
         border-radius: 12px;
-        height: 50vh;
         width: 320px;
         padding-top: 20px;
         box-sizing: border-box;
