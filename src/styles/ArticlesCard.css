@@ -11,8 +11,7 @@
 }
 
 .articles-card-container:hover {
-	padding: 4px;
-	transition: .2s padding;
+	border: 4px solid var(--gray);
 }
 
 .articles-card-container:last-child {
@@ -62,6 +61,13 @@
 	display: block;
 	font-weight: 600;
 	font-size: 13px;
-	color: var(--main-bg-color);
 	margin-top: 4px;
+	color: var(--main-bg-color);
+}
+.easyDescription {
+	opacity: 0;
+	transition: 1s opacity;
+}
+.articles-card-container:hover .easyDescription {
+	opacity: 1;
 }

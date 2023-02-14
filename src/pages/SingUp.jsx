@@ -48,8 +48,8 @@ const SingUp = () => {
 					</div>
 					<div className="form-singup-info">
 						<div className="form-singup-input">
-							<label for="password">CONFIRMAR CONTRASEÑA</label>
-							<input type="password" id="password" />
+							<label for="confirm-password">CONFIRMAR CONTRASEÑA</label>
+							<input type="password" id="confirm-password" />
 						</div>
 					</div>
 				</div>

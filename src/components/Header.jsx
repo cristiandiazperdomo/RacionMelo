@@ -1,16 +1,36 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Search from './Search.jsx';
+import ProfileOptions from './ProfileOptions.jsx';
 import MobileSearch from './MobileSearch.jsx';
-import logo from '../assets/logos/dogicon2.png';
-import { AiOutlineMenu, AiOutlineSearch } from 'react-icons/ai';
+import {
+	AiOutlineMenu,
+	AiOutlineSearch,
+	AiOutlineShoppingCart,
+	AiOutlineUser,
+} from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logos/dogicon2.png';
 import '../styles/Header.css';
 
 const Header = () => {
+	const [isLogged, setIsLogged] = useState(true);
+
+	const [menuVisible, setMenuVisible] = useState(false);
+	const [cursorOverMenu, setCursorOverMenu] = useState(false);
+	const [cursorOverButton, setCursorOverButton] = useState(false);
 
 	const handleMakeAppearMobileMenu = () => {
 		const mobileMenu = document.querySelector('.mobile-search-container');
 		mobileMenu.style.top = '48px';
+	}
+
+	const showMenu = () => {
+		setMenuVisible(true);
+		setCursorOverButton(true);
+	}
+
+	const hideMenu = () => {
+		setCursorOverButton(false);
 	}
 
 	return (
@@ -35,16 +55,34 @@ const Header = () => {
 											¿Como vender?		
 										</Link>
 									</li>
-									<li>
-										<Link to="/singup">		
-											Registrarse	
-										</Link>
-									</li>
-									<li>
-										<Link to="/login">		
-											Entrar		
-										</Link>
-									</li>
+									{isLogged === false 
+									?	<>
+											<li>
+												<Link to="/singup">
+													Registrarse	
+												</Link>
+											</li>
+											<li>
+												<Link to="/login">		
+													Entrar		
+												</Link>
+											</li>
+										</>
+									: 	<>
+											<li>
+												<Link to="/singup">	
+													<AiOutlineShoppingCart />	
+												</Link>
+											</li>
+											<li className="header-user">
+												<Link to="/singup">		
+													Cristian Díaz
+													<AiOutlineUser />
+												</Link>
+												<ProfileOptions />
+											</li>
+										</>
+									}
 								</ul>
 							</div>
 						</div>

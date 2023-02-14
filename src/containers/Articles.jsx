@@ -31,9 +31,12 @@ const Articles = () => {
 				onClick={scrollRight} />
 			</div>
 			<div className="articles-cards">
-				{images.obj.map(info => 
+				{images.petFood.map(info => 
 					<ArticlesCard 
-						img={info.img} 
+						id={info.id} 
+						name={info.name}
+						urlImage={info.urlImage}
+						easyDescription={info.easyDescription}
 						price={info.price}
 					/>
 				)}

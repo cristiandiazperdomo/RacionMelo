@@ -6,6 +6,7 @@
 	background-color: var(--white);
 	cursor: pointer;
 	margin: 8px 8px;
+	transition: .20s padding;
 }
 
 .categories-card-container:nth-child(-3n+9) { /*PAIR NUMBERS*/
@@ -20,7 +21,6 @@
 	background-color: var(--orange);
 	color: var(--white);
 	padding: 4px;
-	transition: .20s padding;
 }
 
 .categories-card {

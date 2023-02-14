@@ -37,9 +37,12 @@
     justify-content: space-between;
 }
 
+.left-side img { 
+    transition: 2s transform;
+}
+
 .left-side img:hover {
     transform: rotate(360deg);
-    transition: 2s transform;
 }
 
 .top-header-container h1 {
@@ -96,17 +99,37 @@
     font-size: 12px;
 }
 
+.header-user:hover .profile-options-container {
+    display: block;
+}
 
-.ul-main-header li:hover {
+.header-user:hover a {
     color: var(--white);
-    height: 100%;
-    background-color: var(--orange);
+}
+
+.left-side ul li svg {
+    width: 22px;
+    height: 22px;
+}
+
+.header-user svg {
+    margin-left: 2px;
+}
+
+.ul-main-header li {    
     transition: .2s background-color;
 }
 
+.ul-main-header li:hover {
+    color: var(--white);
+    background-color: var(--orange);
+    height: 100%;
+}
+.ul-main-header li a {
+    transition: .2s color;
+}
 .ul-main-header li a:hover {
     color: var(--white);
-    transition: .2s color;
 }
 
 .left-side ul li a {
@@ -133,11 +156,11 @@
     min-width: 60px;
     align-items: center;
     justify-content: center;
+    transition: .3s background-color;
 }
 
 .main-header-right i:hover {
     background-color: var(--orange);
-    transition: .3s background-color;
     color: white;
 }
 

@@ -1,0 +1,44 @@
+@import '_vars';
+
+.profile-options-container {
+	display: none;
+	position: absolute;
+	right: 16px;
+	font-size: 12px;
+	border-top: 2px solid var(--white);
+	box-shadow: 1px 4px 4px 0px var(--black);
+	background-color: var(--white);
+}
+
+.profile-options {
+
+}
+
+.profile-options .options-ul {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.profile-options .options-ul li {
+	display: flex;
+	padding: 16px 20px;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.profile-options .options-ul li:hover {
+	background-color: rgba(236, 237, 237, .4);
+}
+
+.profile-options .options-ul li a {
+	text-decoration: none;
+	color: var(--black);
+}
+
+.profile-options .options-ul li a:hover {
+	color: var(--black);
+}

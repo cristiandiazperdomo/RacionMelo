@@ -29,13 +29,13 @@
 	height: 56px;
 	width: 56px;
 	border-radius: 50%;
+	transition: .2s background-color;
+	transition: .2s color;
 }
 
 .articles-cards-container svg:hover {
 	background-color: var(--orange);
 	color: var(--white);
-	transition: .2s background-color;
-	transition: .2s color;
 }
 
 .articles-cards {

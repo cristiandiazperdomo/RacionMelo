@@ -63,11 +63,11 @@
     cursor: pointer;
     width: 120px;
     margin-top: 4px;
+    transition: .3s padding;
 }
 
 .banner-left-side button:hover {
     padding: 12px;
-    transition: .3s padding;
 }
 
 .banner-border {
