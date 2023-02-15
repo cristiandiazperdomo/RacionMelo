@@ -8,10 +8,14 @@
 	margin-right: 16px;
 	border-radius: 4px;
 	box-sizing: border-box;
+	transition: 450ms -webkit-transform;
+	transition: 450ms transform;
+	transition: 450ms transform, 450ms -webkit-transform;
 }
 
 .articles-card-container:hover {
-	border: 4px solid var(--gray);
+	-webkit-transform: scale(1, 1);
+        transform: scale(1.044, 1.044);
 }
 
 .articles-card-container:last-child {
@@ -36,6 +40,16 @@
 .articles-card-bottom {
 	height: 100px;
 	margin: 16px 0 0 16px;
+}
+
+.articles-options {
+	display: flex;
+	justify-content: space-between;
+	font-size: 32px;
+}
+
+.articles-options {
+	margin-right: 12px;
 }
 
 .money {
@@ -66,8 +80,9 @@
 }
 .easyDescription {
 	opacity: 0;
-	transition: 1s opacity;
+	transition: .2s opacity;
 }
 .articles-card-container:hover .easyDescription {
+
 	opacity: 1;
 }

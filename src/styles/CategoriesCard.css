@@ -6,21 +6,24 @@
 	background-color: var(--white);
 	cursor: pointer;
 	margin: 8px 8px;
-	transition: .20s padding;
+	transition: 450ms -webkit-transform;
+	transition: 450ms transform;
+	transition: 450ms transform, 450ms -webkit-transform;
 }
 
-.categories-card-container:nth-child(-3n+9) { /*PAIR NUMBERS*/
+.categories-card-container:nth-child(-3n+9) {
 	margin-right: 0px;
 }
 
-.categories-card-container:nth-child(-1n+9) { /*PAIR NUMBERS*/
+.categories-card-container:nth-child(-1n+9) {
 	margin-left: 0px;
 }
 
 .categories-card-container:hover {
 	background-color: var(--orange);
 	color: var(--white);
-	padding: 4px;
+	-webkit-transform: scale(1);
+       transform: scale(1.02, 1.02);
 }
 
 .categories-card {

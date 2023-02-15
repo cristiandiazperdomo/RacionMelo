@@ -1,7 +1,7 @@
 @import '_vars';
 
 .articles {
-	height: 420px;
+	height: 480px;
 	margin: 0 12px 20px;
 	box-sizing: border-box;
 }
@@ -24,13 +24,14 @@
 }
 
 .articles-cards-container svg {
-	cursor: pointer;
-	background-color: var(--white);
 	height: 56px;
 	width: 56px;
 	border-radius: 50%;
+	background-color: var(--white);
+	cursor: pointer;
 	transition: .2s background-color;
 	transition: .2s color;
+	z-index: 2023;
 }
 
 .articles-cards-container svg:hover {
@@ -42,4 +43,5 @@
 	display: flex;
 	overflow-x: hidden;
 	scroll-behavior: smooth;
+	height: 480px;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiFillPlusCircle } from 'react-icons/ai';
 import '../styles/ArticlesCard.css';
 
 const ArticlesCard = ({
@@ -15,9 +16,12 @@ const ArticlesCard = ({
 					<img src={urlImage} alt="árticulo" />
 				</div>
 				<div className="articles-card-bottom">
-					<div className="money">
-						<h3>${price}</h3>
-						<p className="discount">33% OFF</p>	
+					<div className="articles-options">
+						<div className="money">
+							<h3>${price}</h3>
+							<p className="discount">33% OFF</p>
+						</div>
+						<AiFillPlusCircle />
 					</div>
 					<div className="shipping">
 						<p>Envío disponible</p>
