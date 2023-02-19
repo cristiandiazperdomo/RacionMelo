@@ -6,7 +6,6 @@ import '../styles/Layaout.css';
 
 const Layaout = ({ children }) => {
 	const location = useLocation();
-	console.log(location.pathname)
 
 	return (
 		<>

@@ -6,9 +6,7 @@
 	background-color: var(--white);
 	cursor: pointer;
 	margin: 8px 8px;
-	transition: 450ms -webkit-transform;
-	transition: 450ms transform;
-	transition: 450ms transform, 450ms -webkit-transform;
+	transition: 200ms background-color;
 }
 
 .categories-card-container:nth-child(-3n+9) {
@@ -22,8 +20,6 @@
 .categories-card-container:hover {
 	background-color: var(--orange);
 	color: var(--white);
-	-webkit-transform: scale(1);
-       transform: scale(1.02, 1.02);
 }
 
 .categories-card {

@@ -15,24 +15,6 @@ import '../styles/Header.css';
 const Header = () => {
 	const [isLogged, setIsLogged] = useState(true);
 
-	const [menuVisible, setMenuVisible] = useState(false);
-	const [cursorOverMenu, setCursorOverMenu] = useState(false);
-	const [cursorOverButton, setCursorOverButton] = useState(false);
-
-	const handleMakeAppearMobileMenu = () => {
-		const mobileMenu = document.querySelector('.mobile-search-container');
-		mobileMenu.style.top = '48px';
-	}
-
-	const showMenu = () => {
-		setMenuVisible(true);
-		setCursorOverButton(true);
-	}
-
-	const hideMenu = () => {
-		setCursorOverButton(false);
-	}
-
 	return (
 		<header className="main-header">
 			<div className="main-header-menu">
@@ -70,12 +52,12 @@ const Header = () => {
 										</>
 									: 	<>
 											<li>
-												<Link to="/singup">	
+												<Link to="/payment">	
 													<AiOutlineShoppingCart />	
 												</Link>
 											</li>
 											<li className="header-user">
-												<Link to="/singup">		
+												<Link to="/login">		
 													Cristian Díaz
 													<AiOutlineUser />
 												</Link>
@@ -88,7 +70,7 @@ const Header = () => {
 						</div>
 					</div> 
 				</div>
-				<div className="main-header-right" onClick={handleMakeAppearMobileMenu}>
+				<div className="main-header-right">
 					<i>
 						<AiOutlineSearch />
 					</i>		

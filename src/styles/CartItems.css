@@ -1,0 +1,85 @@
+.CartItem-container {
+	color: var(--black);
+	height: 80px;
+	width: 100%;
+	margin-top: 24px;
+	margin-bottom: 24px;
+}
+
+.CartItem {
+	display: flex;
+}
+
+.CartItem-left {
+	display: flex;
+	width: 50%;
+}
+
+.CartItem-description {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 4px 0px 4px 20px;
+}
+
+.CartItem-description h4 {
+	margin: 0;
+}
+
+.CartItem-description p {
+	color: var(--main-bg-color);
+}
+
+.CartItem-description button {
+	display: flex;
+	border: none;
+	background-color: transparent;
+	padding-left: 0;
+	font-family: 'Dosis', sans-serif;
+	font-weight: 600;
+	font-size: 12px;
+	color: var(--dark-gray);
+}
+
+.CartItem-img {
+	height: 80px;
+	width: 80px;
+}
+
+.CartItem-description-right {
+	display: flex;
+	justify-content: space-between;
+	width: 50%;
+	height: 80px;
+	align-items: flex-start;
+}
+
+.CartItem-amount {
+	width: 33.3%;
+	box-sizing: border-box;
+}
+
+.CartItem-minus {
+	margin-right: 8px;
+}
+
+.CartItem-amount input {
+	text-align: center;
+	background-color: var(--white);
+	border: 1px solid var(--dark-gray);
+	width: 20px;
+}
+
+.CartItem-plus {
+	margin-left: 8px;
+}
+
+.CartItem-description-right {
+	text-align: right;
+}
+
+.CartItem-description-right p {
+	color: var(--black);
+	font-weight: 600;
+	width: 33.3%;
+}

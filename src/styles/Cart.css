@@ -1,0 +1,175 @@
+.Cart {
+	margin: 40px;
+	box-shadow: 0px 0px 20px 2px var(--dark-gray);
+}
+
+.Cart-container {
+	display: flex;
+	background-color: var(--white);
+}
+
+/*LEFT SIDE*/
+
+.Cart-left-side {
+	padding: 40px 40px;
+	width: 70%;
+}
+
+.Cart-left-side header {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid var(--gray);
+}
+
+.Cart-left-side header h3 {
+	font-size: 20px;
+	margin: 0 0 20px 0;
+}
+
+.Cart-list {
+	color: var(--dark-gray);
+	margin: 20px 0;
+	font-size: 12px;
+}
+
+.Cart-list-info {
+	display: flex;
+}
+
+.Cart-list-info-left {
+	width: 50%;
+}
+
+.Cart-list-info-right {
+	display: flex;
+	justify-content: space-between;
+	width: 50%;
+}
+
+.Cart-list-info-right p {
+	text-align: right;
+	width: 33.3%;
+}
+
+.Cart-list-info-right p:first-child {
+	padding-right: 8px;
+	box-sizing: border-box;
+}	
+
+.Cart-list {
+	height: 292px;
+    padding-right: 16px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.Cart-list-go-back  {
+	display: flex;
+	background-color: transparent;
+}
+
+.Cart-list-go-back a {
+	font-family: 'Dosis', sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	font-weight: 800;
+	color: var(--purple);
+}
+
+.Cart-list-go-back svg {
+	margin-right: 8px;
+	color: var(--purple);
+}
+
+/*RIGTH SIDE*/
+
+.Cart-right-side {
+	width: 30%;
+	background-color: var(--gray);
+	padding: 40px 20px;
+	box-sizing: border-box;
+}
+
+.Cart-right-side header {
+}
+
+.Cart-right-side header h3 {
+	margin: 0;
+	margin-bottom: 20px;
+}
+
+.Cart-right-side .resume {
+	padding: 20px 0;
+	font-weight: 700;
+	font-size: 12px;
+	border-bottom: 1px solid var(--dark-gray);
+	border-top: 1px solid var(--dark-gray);
+}
+
+.resume .resume-top {
+	display: flex;
+	justify-content: space-between;
+}
+
+.resume .resume-mid {
+	margin-top: 16px;
+}
+
+.resume .resume-mid p {
+	font-size: 12px;
+}
+
+.resume .resume-mid input {
+	width: 100%;
+	padding: 8px 12px;
+	margin: 16px 0;
+	font-size: 11px;
+	font-weight: 500;
+	background-color: var(--white);
+	box-sizing: border-box;
+	border: none;
+	height: 28px;
+}
+
+.resume .resume-mid input:focus {
+	outline: none;
+}
+
+.resume .resume-mid:nth-child(3){
+	margin: 0;
+}
+
+.resume button {
+	cursor: pointer;
+	margin: 8px 0;
+	font-size: 12px;
+	padding: 8px 16px;
+	background-color: var(--orange);
+	border: none;
+	color: white;
+}
+
+.Cart-right-side-footer {
+}
+
+.Cart-right-side-footer div {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 0;
+}
+
+.Cart-right-side-footer div p {
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.Cart-right-side-footer button {
+	cursor: pointer;
+	font-size: 12px;
+	width: 100%;
+	background-color: var(--purple);
+	color: var(--white);
+	border: none;
+	padding: 8px 0;
+	font-weight: 300;
+}

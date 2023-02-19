@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ArticlesCard from '../components/ArticlesCard.jsx';
 import useArrayArticles from '../hooks/useArrayArticles.js';
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md'
 import '../styles/Articles.css';
 
 const Articles = () => {
-	const images = useArrayArticles();
+	const [cart, setCart] = useState([]);
+
+	const petFood = useArrayArticles();
 
 	const scrollLeft = () => {
 		if (document.querySelector(".articles-cards")) {
@@ -31,15 +33,11 @@ const Articles = () => {
 				onClick={scrollRight} />
 			</div>
 			<div className="articles-cards">
-				{images.petFood.map(info => 
-					<ArticlesCard 
-						id={info.id} 
-						name={info.name}
-						urlImage={info.urlImage}
-						easyDescription={info.easyDescription}
-						price={info.price}
-					/>
-				)}
+				<ArticlesCard 
+					petFood={petFood.petFood}
+					cart={cart}
+					setCart={setCart}
+				/>
 			</div>
 		</div>
 	)

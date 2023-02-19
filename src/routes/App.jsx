@@ -4,17 +4,25 @@ import Layaout from '../containers/Layaout.jsx';
 import Home from '../pages/Home.jsx';
 import Login from '../pages/Login.jsx';
 import SingUp from '../pages/SingUp.jsx';
+import Payment from '../pages/Payment.jsx';
+import { MyContext } from '../context/MyContext.js';
+import useArrayArticles from '../hooks/useArrayArticles.js';
 
 const App = () => {
-	return (
+	const array = useArrayArticles()
+
+	return (			
 		<HashRouter>
-			<Layaout>
-				<Routes>
-					<Route exact path="/" element={<Home />}></Route>
-					<Route exact path="/login" element={<Login />}></Route>
-					<Route exact path="/singup" element={<SingUp />}></Route>
-				</Routes>
-			</Layaout>
+			<MyContext.Provider value={array}>
+				<Layaout>
+					<Routes>
+						<Route exact path="/" element={<Home />}></Route>
+						<Route exact path="/login" element={<Login />}></Route>
+						<Route exact path="/singup" element={<SingUp />}></Route>
+						<Route exact path="/payment" element={<Payment />}></Route>
+					</Routes>
+				</Layaout>
+			</MyContext.Provider>	
 		</HashRouter>
 	)
 }
