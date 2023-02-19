@@ -9,10 +9,10 @@
 	font-family: 'Dosis', sans-serif;
 	border: none;
 	outline: none;
-    padding-left: 8px;
 	width: 400px;
     height: 30px;
 	font-size: 14px;
+    padding-left: 8px;
 }
 
 .search-input input:focus {
@@ -20,13 +20,13 @@
 }
 
 .search-icon {
-	background-color: rgb(249, 166, 40);
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
 	width: 44px;
     height: 32px;
-	cursor: pointer;
+	background-color: rgb(249, 166, 40);
 }
 
 .search-icon:hover {

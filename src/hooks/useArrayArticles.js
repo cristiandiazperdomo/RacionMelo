@@ -5,7 +5,24 @@ import img3 from '../assets/banners/food3.png';
 import img4 from '../assets/banners/food4.png';
 
 const initialPetFood = {
-        cart: [],
+        cart: [
+            [{
+                id: 2,
+                name: "Alimento para perros Adultos",
+                urlImage: img2,
+                easyDescription: "Alimento completo para perros con sabor a carne.",
+                complexDescription: "Este alimento para perros adultos es una fuente completa de proteínas de alta calidad, vitaminas y minerales necesarios para mantener una salud óptima y una actividad física sana. Con sabor a carne, se asegura que los perros encuentren el sabor irresistible. Además, incluye prebióticos para un sistema digestivo saludable y ácidos grasos Omega-3 y Omega-6 para una piel y pelaje saludables.",
+                price: 35.99,
+            }],
+            [{
+                id: 3,
+                name: "Alimento para aves de corral",
+                urlImage: img3,
+                easyDescription: "Alimento completo para aves de corral con semillas y granos.",
+                complexDescription: "Este alimento para aves de corral contiene una combinación de semillas y granos de alta calidad para una nutrición completa. Incluye vitaminas y minerales esenciales para un crecimiento saludable y un sistema inmunológico fuerte. Además, incluye prebióticos para un sistema digestivo saludable y ácidos grasos Omega-3 y Omega-6 para un pelaje brillante.",
+                price: 19.99,
+            }],
+        ],
         articles: [
             [{
                 id: 1,

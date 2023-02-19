@@ -5,6 +5,7 @@ import '../styles/CartItems.css';
 const CartItem = ({ product }) => {
 
 	const [ item ] = product;
+	
 	return (
 		<div className="CartItem-container">
 			<div className="CartItem">
@@ -17,7 +18,7 @@ const CartItem = ({ product }) => {
 					<div className="CartItem-description">
 						<h4>{item.name}</h4>
 						<p>{item.name}</p>
-						<button>Remove</button>
+						<button>Eliminar</button>
 					</div>
 				</div>
 				<div className="CartItem-description-right">

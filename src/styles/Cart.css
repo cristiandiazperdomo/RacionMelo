@@ -173,3 +173,43 @@
 	padding: 8px 0;
 	font-weight: 300;
 }
+
+@media all and (max-width: 756px) {
+	.Cart {
+		margin: 40px;
+	}
+
+	.Cart-container {
+		display: flex;
+		flex-direction: column;
+		height: auto;
+	}
+
+	.Cart-list-info {
+	    display: none;
+	}
+
+	/*LEFT-SIDE*/
+
+	.Cart-left-side {
+		padding: 40px 20px;
+		width: auto;
+	}
+
+	/*RIGHT-SIDE*/
+
+	.Cart-right-side {
+		width: 100%;
+	}
+
+	.Cart-right-side header {
+		display: flex;
+		flex-direction: column;		
+	}
+}
+
+@media all and (max-width: 400px) {
+	.Cart {
+		margin: 40px 0;
+	}
+}

@@ -37,21 +37,16 @@
     justify-content: space-between;
 }
 
-.left-side img { 
-    transition: 2s transform;
-}
-
-.left-side img:hover {
-    transform: rotate(360deg);
+.left-side {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+    color: var(--black);
 }
 
 .top-header-container h1 {
     font-size: 28px;
-}
-
-.left-side {
-    display: flex;
-    align-items: center;
 }
 
 .right-side {
