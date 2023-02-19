@@ -117,29 +117,36 @@
 
 @media all and (max-width: 540px) {
     .banner {
-        background-color: var(--white);
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
         min-height: 100vh;
         max-height: 100vh;
-        padding: 0;
         margin: 20px 12px 12px;
+        padding: 0;
+        background-color: var(--white);
         box-sizing: border-box;
     }
+    
     .banner-left-side {
         display: flex;  
         justify-content: space-evenly;
-        margin: 0;
-        padding: 0 48px;
+        box-sizing: border-box;
         width: 100%;
         height: 50vh;
-        box-sizing: border-box;
+        padding: 0 48px;
+        margin: 0;
     }
+
     .banner-right-side {
         height: 50vh;
     }
+
+    .banner-right-side img {
+        width: 100%;
+    }
+
 }
 
 @media all and (max-width: 460px) {
