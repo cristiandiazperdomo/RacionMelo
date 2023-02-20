@@ -7,24 +7,24 @@ const ArticlesCard = () => {
 	const { petFood, addToCart } = useContext(MyContext);
 
 	const handleAddToCart = (id) => {
-		addToCart(petFood.articles[id]);
+		addToCart(petFood.articles[id - 1]);
 	}
 
 	return (
 		<>
 			{petFood.articles.map(food => 
-				<div className="articles-card-container" key={food[0].id}>
+				<div className="articles-card-container" key={food.id}>
 					<div className="articles-card">
 						<div className="articles-card-top">
-							<img src={food[0].urlImage} alt="árticulo" />
+							<img src={food.urlImage} alt="árticulo" />
 						</div>
 						<div className="articles-card-bottom">
 							<div className="articles-options">
 								<div className="money">
-									<h3>${food[0].price}</h3>
+									<h3>${food.price}</h3>
 									<p className="discount">33% OFF</p>
 								</div>
-								<i className="addToCart" onClick={() => handleAddToCart(food[0].id)}>
+								<i className="addToCart" onClick={() => handleAddToCart(food.id)}>
 									<AiFillPlusCircle />
 								</i>
 							</div>
@@ -32,7 +32,7 @@ const ArticlesCard = () => {
 								<p>Envío disponible</p>
 							</div>
 							<div className="easyDescription">
-								{food[0].easyDescription}
+								{food.easyDescription}
 							</div>
 						</div>
 					</div>

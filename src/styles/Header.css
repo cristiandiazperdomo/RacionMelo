@@ -165,24 +165,36 @@
 }
 
 @media all and (max-width: 767px) {
-    .bottom-header-container {
+    .how-to-sell {
         display: none;
     }
     .main-header-right {
         display: flex;
     }
+
+    .bottom-header-container {
+        display: none;
+    }
+
+    .header-user {
+        display: block;
+    }
+
+    .user-icon {
+        display: block;
+    }
+
 }
 
 @media all and (max-width: 640px) {
     .main-header-container {
         padding: 0 8px;
     }
-    .bottom-header-container {
-        display: none;
-    }
+
     .main-header-right {
         display: flex;
     }
+
 }
 
 @media all and (max-width: 599px) {

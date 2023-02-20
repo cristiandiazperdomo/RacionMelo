@@ -17,7 +17,7 @@ const Cart = () => {
 							Carrito de compras
 						</h3>
 						<h3>
-							{petFood.cart.length} Items
+							{Object.entries(petFood.cart).length} Items
 						</h3>
 					</header>
 					<div className="Cart-list">

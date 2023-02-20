@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
@@ -16,7 +16,7 @@ const Layaout = ({ children }) => {
 			</>
 			:
 			<> 
-				<Header className="Layaout" />
+				<Header className="Layaout"/>
 					{children}
 				<Footer />
 			</>

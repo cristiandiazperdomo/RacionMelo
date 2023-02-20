@@ -11,7 +11,7 @@ const Categories = () => {
 			<h3 className="categories-h3">Categorias</h3>
 			<div className="categories">
 				{
-					images.obj.map( info => 
+					images.animalCategories.map( info => 
 						<Card 
 							key={info.id}
 							img={info.img} 

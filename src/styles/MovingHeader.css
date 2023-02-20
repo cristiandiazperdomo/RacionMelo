@@ -1,0 +1,31 @@
+.main-header-moving {
+    box-shadow: inset 0px 60px 20px 0px rgb(255 255 255) !important;
+}
+.main-header-moving {
+	position: fixed ;
+	width: 100%;
+	z-index: 2024;
+    box-sizing: border-box;
+    width: 100%;
+	/*transition: width 3s ease-in-out;*/
+}
+
+.moving {
+	background-color: transparent !important;
+	margin-top: 0 !important;
+}
+
+.moving-header {
+	z-index: 4000;
+	margin-top: 0 !important;
+}
+
+.moving-header-h2 {
+	font-size: 28px;
+}
+
+@media all and (max-width: 540px) {
+	.moving-header-h2 {
+		display: none;
+	}
+}

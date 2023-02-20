@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+import { MyContext } from '../context/MyContext.js';
 import '../styles/CartItems.css';
 
 const CartItem = ({ product }) => {
+	const { removeFromCart } = useContext(MyContext);
 
-	const [ item ] = product;
-	
+ 	const handleRemoveItem = (id) => {
+ 		removeFromCart(id);
+	};
+
 	return (
 		<div className="CartItem-container">
 			<div className="CartItem">
 				<div className="CartItem-left">
 					<img 
-						src={item.urlImage} 
-						alt={item.name} 
+						src={product.urlImage} 
+						alt={product.name} 
 						className="CartItem-img"
 					/>
 					<div className="CartItem-description">
-						<h4>{item.name}</h4>
-						<p>{item.name}</p>
-						<button>Eliminar</button>
+						<h4>{product.name}</h4>
+						<p>{product.name}</p>
+						<button onClick={() => handleRemoveItem(product.id)}>Eliminar</button>
 					</div>
 				</div>
 				<div className="CartItem-description-right">
@@ -27,7 +31,7 @@ const CartItem = ({ product }) => {
 						<input type="text" value="4" />
 						<AiOutlinePlus className="CartItem-plus" />
 					</div>
-					<p>${item.price}</p>
+					<p>${product.price}</p>
 					<p>$103.04</p>
 				</div>
 			</div>

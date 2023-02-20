@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MobileMenu = () => {
+const MobileMenu = ({ handleShowMenu }) => {
 	return (
 		<ul className="mobile-menu">
 			<li>
