@@ -28,7 +28,7 @@ const CartItem = ({ product }) => {
 				<div className="CartItem-description-right">
 					<div className="CartItem-amount">
 						<AiOutlineMinus className="CartItem-minus" />
-						<input type="text" value="4" />
+						<input type="number" defaultValue={product.amount} />
 						<AiOutlinePlus className="CartItem-plus" />
 					</div>
 					<p>${product.price}</p>
