@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+
 import img from '../assets/banners/food.png';
 import img2 from '../assets/banners/food2.png';
 import img3 from '../assets/banners/food3.png';
@@ -119,9 +121,17 @@ const initialPetFood = {
         ]
     };
 
-const useArrayArticles = () => {
+const useArrayArticles = state => {
     const [petFood, setPetFood] = useState(initialPetFood);
     const [isAlready, setIsAlready] = useState(false);
+
+    useEffect(() => {   // show prices if there is any item in the cart.
+        setPetFood({
+            ...petFood,
+            total: calculateCartTotal(petFood.cart).total,
+            totalPlusShipping: calculateCartTotal(petFood.cart).totalPlusShipping,        
+        })
+    }, [])
 
     const calculateCartTotal = (cart) => {
         let sum = 0;
@@ -133,14 +143,6 @@ const useArrayArticles = () => {
             totalPlusShipping: Math.round(sum + 40),    // 40 = shipping
         }
     };
-
-    useEffect(() => {   // show prices if there is any item in the cart.
-        setPetFood({
-            ...petFood,
-            total: calculateCartTotal(petFood.cart).total,
-            totalPlusShipping: calculateCartTotal(petFood.cart).totalPlusShipping,        
-        })
-    }, [])
 
     const addToCart = product => {
         const newState = {...petFood};  // Creating a copy of the state
@@ -212,4 +214,5 @@ const useArrayArticles = () => {
         removeFromCart,
     }
 }
+
 export default useArrayArticles;

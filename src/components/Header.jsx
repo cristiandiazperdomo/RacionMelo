@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+// import { connect } from 'react-redux';
+// import { aumentar } from '../redux/actions/index.js';
 import Search from './Search.jsx';
 import ProfileOptions from './ProfileOptions.jsx';
 import MobileSearch from './MobileSearch.jsx';
@@ -14,7 +16,7 @@ import {
 } from 'react-icons/ai';
 import '../styles/Header.css';
 
-const Header = () => {
+const Header = (props) => {
 	const [isLogged, setIsLogged] = useState(true);
 	const [isMoving, setIsMoving] = useState(false);
 	const [showMenu, setShowMenu] = useState(false);
@@ -123,5 +125,17 @@ const Header = () => {
 		</>
 	)
 }
+
+// const mapStateToProps = state => {
+// 	return {
+// 		contador: state.contador,
+// 	}
+// }
+
+// const mapDispatchToProps = {
+// 	aumentar,
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
 export default Header;

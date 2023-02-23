@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
+// import { connect } from 'react-redux';
 import { MyContext } from '../context/MyContext';
+// import { getState } from '../redux/actions/index.js';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import '../styles/ArticlesCard.css';
 
@@ -42,4 +44,9 @@ const ArticlesCard = () => {
 	)
 }
 
+// const mapDispatchToProps = {
+// 	getState
+// }
+
 export default ArticlesCard;
+// export default connect(null, mapDispatchToProps)(ArticlesCard);

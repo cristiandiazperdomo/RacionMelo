@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import { connect } from 'react-redux';
+import { calculateTotalForEachProduct, } from '../redux/actions/index.js';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { MyContext } from '../context/MyContext.js';
 import '../styles/CartItems.css';
@@ -6,7 +8,7 @@ import '../styles/CartItems.css';
 const CartItem = ({ product }) => {
 	const { removeFromCart, addToCart } = useContext(MyContext);
 
-    const calculateTotalForEachProduct = product => Math.round(product.price * product.amount);
+	const calculateTotalForEachProduct = product => Math.round(product.price * product.amount);
 
 	const handleAddToCart = product => {
 		addToCart(product);
@@ -15,7 +17,7 @@ const CartItem = ({ product }) => {
  	const handleRemoveItem = (id) => {
  		removeFromCart(id);
 	};
-
+	ghoal desde migrando a redux
 	return (
 		<div className="CartItem-container">
 			<div className="CartItem">
@@ -51,4 +53,9 @@ const CartItem = ({ product }) => {
 	)
 }
 
+// const mapDispatchToProps = {
+// 	calculateTotalForEachProduct,
+// }
+
 export default CartItem;
+// export default connect(null, mapDispatchToProps)(CartItem);

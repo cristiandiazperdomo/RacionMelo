@@ -4,8 +4,6 @@
 	width: 100%;
 	margin-top: 24px;
 	margin-bottom: 24px;
-		-webkit-overflow-scrolling: touch; /* Propiedad necesaria para el desplazamiento fluido en dispositivos móviles */
-	scroll-snap-type: x mandatory; /* Habilita el deplazamiento de los puntos de interrupción en el eje X */
 }
 
 .CartItem {
