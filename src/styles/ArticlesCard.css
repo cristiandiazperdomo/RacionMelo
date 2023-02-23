@@ -8,14 +8,12 @@
 	margin-right: 16px;
 	border-radius: 4px;
 	box-sizing: border-box;
-	transition: 450ms -webkit-transform;
-	transition: 450ms transform;
-	transition: 450ms transform, 450ms -webkit-transform;
+/*	transition: 450ms transform, 450ms -webkit-transform;*/
 }
 
 .articles-card-container:hover {
-	-webkit-transform: scale(1, 1);
-        transform: scale(1.044, 1.044);
+/*	-webkit-transform: scale(1, 1);*/
+/*        transform: scale(1.044, 1.044);*/
 }
 
 .articles-card-container:last-child {

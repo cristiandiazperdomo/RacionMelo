@@ -37,6 +37,16 @@ const Header = () => {
 		setShowMenu(!showMenu);
 	}
 
+	const isMobileMenuOpen = () => {
+		const mobileSearch = document.querySelector('.mobile-search-container');
+		const top  = mobileSearch.style.top || undefined;
+		if (top === '-60px' || top === undefined) {
+			mobileSearch.style.top = '48px';
+		} else {
+			mobileSearch.style.top = '-60px';	
+		}
+	};
+
 	return (
 		<>	
 		{ isMoving && <MovingHeader handleShowMenu={handleShowMenu} /> }
@@ -97,16 +107,16 @@ const Header = () => {
 						</div> 
 					</div>
 					<div className="main-header-right">
-						<i>
-							<AiOutlineSearch />
+						<i onClick={isMobileMenuOpen}>
+							<AiOutlineSearch/>
 						</i>
 						<i onClick={handleShowMenu}>
 							<AiOutlineMenu />
 						</i>
 					</div>
 				</div>
-				<MobileSearch />
-				{showMenu && <MobileHeader handleShowMenu={handleShowMenu}/>}
+				<MobileSearch isMobileMenuOpen={isMobileMenuOpen} />
+				{showMenu && <MobileHeader handleShowMenu={handleShowMenu} />}
 			</header>
 		
 			

@@ -4,6 +4,8 @@
 	width: 100%;
 	margin-top: 24px;
 	margin-bottom: 24px;
+		-webkit-overflow-scrolling: touch; /* Propiedad necesaria para el desplazamiento fluido en dispositivos móviles */
+	scroll-snap-type: x mandatory; /* Habilita el deplazamiento de los puntos de interrupción en el eje X */
 }
 
 .CartItem {
@@ -63,6 +65,10 @@
 	box-sizing: border-box;
 }
 
+.CartItem-amount svg {
+	cursor: pointer;
+}
+
 .CartItem-minus {
 	margin-right: 8px;
 }
@@ -71,7 +77,20 @@
 	text-align: center;
 	background-color: var(--white);
 	border: 1px solid var(--dark-gray);
-	width: 20px;
+	width: 24px;
+	box-sizing: border-box;
+}
+
+/* oculta los controles de número */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* oculta la flecha de incremento en Firefox */
+input[type=number] {
+	-moz-appearance: textfield;
 }
 
 .CartItem-plus {
@@ -86,6 +105,14 @@
 	color: var(--black);
 	font-weight: 600;
 	width: 33.3%;
+}
+
+@media all and (max-width: 800px) {
+	.CartItem-amount {
+		display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
 }
 
 @media all and (max-width: 756px) {
@@ -114,7 +141,9 @@
 	}
 
 	.CartItem-amount {
-		width: auto;
+	    display: flex;
+	    width: auto;
+	    align-items: center;
 	}
 
 }

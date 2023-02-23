@@ -32,6 +32,19 @@
 	font-size: 12px;
 }
 
+.Cart-products {
+	display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-no-products {
+	display: flex;
+	justify-content: center;
+	width: 250px;
+}
+
 .Cart-list-info {
 	display: flex;
 }
@@ -61,6 +74,8 @@
     padding-right: 16px;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch; /* Propiedad necesaria para el desplazamiento fluido en dispositivos móviles */
+	scroll-snap-type: y mandatory; /* Habilita el deplazamiento de los puntos de interrupción en el eje X */
 }
 
 .Cart-list-go-back  {

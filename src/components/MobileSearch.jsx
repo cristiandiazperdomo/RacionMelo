@@ -2,17 +2,11 @@ import React from 'react';
 import { AiOutlineLeft, AiOutlineSearch } from 'react-icons/ai';
 import '../styles/MobileSearch.css';
 
-const MobileSearch = () => {
-
-	const handleMakeDisappearMobileMenu = () => {
-		const mobileMenu = document.querySelector('.mobile-search-container');
-		mobileMenu.style.top = '-60px';
-	}
-
+const MobileSearch = ({ isMobileMenuOpen }) => {
 	return (
 		<div className="mobile-search-container">
 			<div className="mobile-search">
-				<div className="mobile-search-icon" onClick={handleMakeDisappearMobileMenu}>
+				<div className="mobile-search-icon" onClick={isMobileMenuOpen}>
 					<AiOutlineLeft />
 				</div>
 				<input type="text" name="search" placeholder="Busca algún articulo" />
@@ -22,7 +16,6 @@ const MobileSearch = () => {
 			</div>
 		</div>
 	)
-
 }
 
 export default MobileSearch;

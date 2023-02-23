@@ -1,12 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MyContext } from '../context/MyContext';
 import { HiOutlineArrowNarrowLeft } from 'react-icons/hi'
 import CartItem from '../components/CartItems.jsx';
+import EmptyShoppingCart from '../assets/logos/dog-empty-shopping-cart.png';
 import '../styles/Cart.css';
 
 const Cart = () => {
+	const [isCart, setIsCart] = useState(false);
 	const { petFood } = useContext(MyContext); 
+
+	useEffect(() => {
+		petFood.cart.length > 0 ? setIsCart(true) : setIsCart(false);
+	}, [petFood.cart])
 
 	return (
 		<div className="Cart">
@@ -17,7 +23,7 @@ const Cart = () => {
 							Carrito de compras
 						</h3>
 						<h3>
-							{Object.entries(petFood.cart).length} Items
+							{isCart ? petFood.cart.length : 'Sin'} items
 						</h3>
 					</header>
 					<div className="Cart-list">
@@ -32,9 +38,11 @@ const Cart = () => {
 							</div>
 						</div>
 						<div className="Cart-products">
-						{petFood.cart.map(product => (
-							<CartItem product={product} />
-						))
+						{isCart ? 
+							petFood.cart.map(product => (
+								<CartItem product={product} key={product.id}/>
+							))
+						: 	<img src={EmptyShoppingCart} alt="sin productos en el carrito" className="cart-no-products" />
 						}
 						</div>
 					</div>
@@ -49,27 +57,27 @@ const Cart = () => {
 					</header>
 					<div className="resume">
 						<div className="resume-top">
-							<p>ITEM 3</p>
-							<p>$457</p>
+							<p>{isCart ? petFood.cart.length : 'Sin'} items</p>
+							<p>${isCart ? petFood.total : 0 }</p>
 						</div>
 						<div className="resume-mid">
 							<p>ENVÍO</p>
-							<input type="text" value="Envío Estandar - $5.00" />
+							<input type="text" value="Envío Estandar - $40.00" />
 						</div>
 						<div className="resume-mid">
 							<p>CÓDIGO DE PROMOCIÓN</p>
-							<input type="text" value="Envío Estandar - $5.00" />
+							<input type="text" value="Envío Estandar - $40.00" />
 						</div>
 						<button>ENVÍAR</button>
 					</div>
 					<footer className="Cart-right-side-footer">
 						<div className="Cart-right-side-bottom-div">
 							<p>COSTO TOTAL</p>
-							<p>$462.98</p>
+							<p>${isCart ? petFood.totalPlusShipping : 0 }</p>
 						</div>
 						<button>CONFIRMAR</button>
 					</footer>
-				</div>
+					</div>
 			</div>
 		</div>		
 	)

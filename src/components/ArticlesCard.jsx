@@ -9,7 +9,7 @@ const ArticlesCard = () => {
 	const handleAddToCart = (id) => {
 		addToCart(petFood.articles[id - 1]);
 	}
-
+	
 	return (
 		<>
 			{petFood.articles.map(food => 

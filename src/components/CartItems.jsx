@@ -4,7 +4,13 @@ import { MyContext } from '../context/MyContext.js';
 import '../styles/CartItems.css';
 
 const CartItem = ({ product }) => {
-	const { removeFromCart } = useContext(MyContext);
+	const { removeFromCart, addToCart } = useContext(MyContext);
+
+    const calculateTotalForEachProduct = product => Math.round(product.price * product.amount);
+
+	const handleAddToCart = product => {
+		addToCart(product);
+	};
 
  	const handleRemoveItem = (id) => {
  		removeFromCart(id);
@@ -27,12 +33,18 @@ const CartItem = ({ product }) => {
 				</div>
 				<div className="CartItem-description-right">
 					<div className="CartItem-amount">
-						<AiOutlineMinus className="CartItem-minus" />
-						<input type="number" defaultValue={product.amount} />
-						<AiOutlinePlus className="CartItem-plus" />
+						<AiOutlineMinus 
+							className="CartItem-minus" 
+							onClick={() => handleRemoveItem(product.id)} 
+						/>
+						<input type="number" value={product.amount} />
+						<AiOutlinePlus 
+							className="CartItem-plus" 
+							onClick={() => handleAddToCart(product)} 
+						/>
 					</div>
 					<p>${product.price}</p>
-					<p>$103.04</p>
+					<p>${calculateTotalForEachProduct(product)}</p>
 				</div>
 			</div>
 		</div>

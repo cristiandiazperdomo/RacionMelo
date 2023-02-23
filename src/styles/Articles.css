@@ -13,14 +13,14 @@
 
 .articles-cards-container {
 	display: flex;
-    position: absolute;
     justify-content: space-between;
+    box-sizing: border-box;
+    position: absolute;
     width: 99%;
     height: 60px;
     margin-left: -8px;
     margin-top: 140px;
     align-items: center;
-    box-sizing: border-box;
 }
 
 .articles-cards-container svg {
@@ -41,7 +41,15 @@
 
 .articles-cards {
 	display: flex;
-	overflow-x: hidden;
+	overflow-x: scroll;
 	scroll-behavior: smooth;
 	height: 480px;
+	-webkit-overflow-scrolling: touch; /* Propiedad necesaria para el desplazamiento fluido en dispositivos móviles */
+	scroll-snap-type: x mandatory; /* Habilita el deplazamiento de los puntos de interrupción en el eje X */
+}
+
+@media all and (max-width: 720px) {
+	.articles-cards-container {
+		display: none;
+	}
 }

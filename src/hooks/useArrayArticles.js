@@ -5,7 +5,17 @@ import img3 from '../assets/banners/food3.png';
 import img4 from '../assets/banners/food4.png';
 
 const initialPetFood = {
-        cart: [
+        total: 0,
+        totalPlusShipping: 0,
+        cart: [{
+                id: 1,
+                name: "Alimento para gatos Premium",
+                urlImage: img,
+                easyDescription: "Alimento completo para gatos con sabor a pollo.",
+                complexDescription: "Este alimento premium para gatos contiene una combinación perfecta de proteínas de alta calidad, vitaminas y minerales para mantener una salud óptima y un pelaje brillante. Con sabor a pollo, aseguramos que los gatos encuentren el sabor irresistible. Además, incluye antioxidantes para una digestión saludable y prebióticos para un sistema digestivo fuerte.",
+                price: 25.99,
+                amount: 1,
+            },
             {
                 id: 2,
                 name: "Alimento para perros Adultos",
@@ -14,17 +24,7 @@ const initialPetFood = {
                 complexDescription: "Este alimento para perros adultos es una fuente completa de proteínas de alta calidad, vitaminas y minerales necesarios para mantener una salud óptima y una actividad física sana. Con sabor a carne, se asegura que los perros encuentren el sabor irresistible. Además, incluye prebióticos para un sistema digestivo saludable y ácidos grasos Omega-3 y Omega-6 para una piel y pelaje saludables.",
                 price: 35.99,
                 amount: 1,
-            },
-            {
-                id: 3,
-                name: "Alimento para aves de corral",
-                urlImage: img3,
-                easyDescription: "Alimento completo para aves de corral con semillas y granos.",
-                complexDescription: "Este alimento para aves de corral contiene una combinación de semillas y granos de alta calidad para una nutrición completa. Incluye vitaminas y minerales esenciales para un crecimiento saludable y un sistema inmunológico fuerte. Además, incluye prebióticos para un sistema digestivo saludable y ácidos grasos Omega-3 y Omega-6 para un pelaje brillante.",
-                price: 19.99,
-                amount: 1,
-            },
-        ],
+            }],
         articles: [
             {
                 id: 1,
@@ -123,35 +123,87 @@ const useArrayArticles = () => {
     const [petFood, setPetFood] = useState(initialPetFood);
     const [isAlready, setIsAlready] = useState(false);
 
-    const sum = (num1, num2) => {
-        return num1 + num2;
-    }
-    
+    const calculateCartTotal = (cart) => {
+        let sum = 0;
+        cart.map(item => {
+            sum = sum + (item.price * item.amount);
+        });
+        return {
+            total: Math.round(sum),
+            totalPlusShipping: Math.round(sum + 40),    // 40 = shipping
+        }
+    };
+
+    useEffect(() => {   // show prices if there is any item in the cart.
+        setPetFood({
+            ...petFood,
+            total: calculateCartTotal(petFood.cart).total,
+            totalPlusShipping: calculateCartTotal(petFood.cart).totalPlusShipping,        
+        })
+    }, [])
+
     const addToCart = product => {
-        const newState = {...petFood}; // Creating a copy of the state
-        // Checking if the product was already added to cart
+        const newState = {...petFood};  // Creating a copy of the state
+        //  Checking if the product was already added to cart
         const isProductAlreadyInCart = petFood.cart.some(item => product.id === item.id);
-        if(isProductAlreadyInCart) { // If it's true it will add one more on amount.
+        if(isProductAlreadyInCart) {    // If it's true amount will be increased.
             const updatedCart = petFood.cart.map(item => { 
                 if (item.id === product.id) {
-                    return { ...item, amount: item.amount + 1 };
+                    return { 
+                        ...item, 
+                        amount: item.amount + 1,
+                    };
                 }
                 return item;
             });
-            setPetFood({ ...petFood, cart: updatedCart });
-        } else { // If it's not true it will add the product.
+            setPetFood({ 
+                ...petFood, 
+                cart: updatedCart,
+                total: calculateCartTotal(updatedCart).total,
+                totalPlusShipping: calculateCartTotal(newState.cart).totalPlusShipping,
+
+            });
+        } else {    // If it's not true it will add the product.
             newState.cart = [
                 ...petFood.cart,
                 product,
             ]
-            setPetFood(newState);
+            setPetFood({
+                ...newState,
+                total: calculateCartTotal(newState.cart).total,
+                totalPlusShipping: calculateCartTotal(newState.cart).totalPlusShipping,
+            });
         }
     };
 
     const removeFromCart = (id) => {
         const newState = { ...petFood };
-        newState.cart = newState.cart.filter(item => item.id !== id);
-        setPetFood(newState)
+        petFood.cart.map(item => {
+            if (item.id === id) {
+                if(item.amount < 2) {
+                    newState.cart = newState.cart.filter(item => item.id !== id);
+                    setPetFood({
+                        ...newState,
+                        total: calculateCartTotal(newState.cart).total,
+                        totalPlusShipping: calculateCartTotal(newState.cart).totalPlusShipping,
+                    });
+                } else {
+                    const updatedCart = petFood.cart.map(item => {
+                        if (item.id === id) {
+                            return {...item, amount: item.amount - 1};
+                        }
+                        return item;
+                    });
+                    console.log('clicked')
+                    setPetFood({
+                        ...petFood, 
+                        cart: updatedCart,
+                        total: calculateCartTotal(updatedCart).total,
+                        totalPlusShipping: calculateCartTotal(newState.cart).totalPlusShipping,
+                    });
+                }
+            }
+        });
     };
 
     return {
