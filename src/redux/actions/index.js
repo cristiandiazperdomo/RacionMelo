@@ -5,8 +5,23 @@ export const calculateTotalForEachProduct = payload => {
 	}
 } 
 
-export const getState = () => {
+export const addToCart = payload => {
 	return {
-		type: 'GET_STATE',
+		type: 'ADD_TO_CART',
+		payload,
 	}
-} 
+}
+
+export const removeFromCart = payload => {
+	return {
+		type: 'REMOVE_FROM_CART',
+		payload,
+	}
+}
+
+export const calculateCartTotal = payload => {
+	return {
+		type: 'CALCULATE_CART_TOTAL',
+		payload,
+	}
+}

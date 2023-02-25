@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import ArticlesCard from '../components/ArticlesCard.jsx';
 import useArrayArticles from '../hooks/useArrayArticles.js';
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md'
 import '../styles/Articles.css';
 
-const Articles = () => {
+const Articles = ({ state }) => {
 	const [cart, setCart] = useState([]);
 
-	const petFood = useArrayArticles();
+	const petFood = state;
 
 	const scrollLeft = () => {
 		if (document.querySelector(".articles-cards")) {
@@ -34,7 +35,7 @@ const Articles = () => {
 			</div>
 			<div className="articles-cards">
 				<ArticlesCard 
-					petFood={petFood.petFood}
+					petFood={petFood}
 					cart={cart}
 					setCart={setCart}
 				/>
@@ -43,4 +44,10 @@ const Articles = () => {
 	)
 }
 
-export default Articles;
+const mapStateToProps = state => {
+	return {
+		state,
+	}
+}
+
+export default connect(mapStateToProps, null)(Articles);

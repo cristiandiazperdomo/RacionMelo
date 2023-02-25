@@ -77,11 +77,18 @@
 	border: 1px solid var(--dark-gray);
 	width: 24px;
 	box-sizing: border-box;
+	user-select: none;
+}
+
+.CartItem-amount input::selection {
+  background-color: var(--white);
+  color: var(--black);
 }
 
 /* oculta los controles de número */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
+	user-select: none;
 	-webkit-appearance: none;
 	margin: 0;
 }

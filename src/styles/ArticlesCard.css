@@ -54,6 +54,14 @@
 	display: flex;
 }
 
+.addToCart {
+	transition: color .2s;
+}
+
+.addToCart:hover {
+ 	color: var(--black);
+}
+
 .articles-card-bottom h3 {
 	font-size: 24px;
 	font-weight: 400;

@@ -170,6 +170,7 @@ const useArrayArticles = state => {
                 ...petFood.cart,
                 product,
             ]
+            console.log(newState)
             setPetFood({
                 ...newState,
                 total: calculateCartTotal(newState.cart).total,
