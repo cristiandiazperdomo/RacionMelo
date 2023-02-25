@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { connect } from 'react-redux';
-// import { aumentar } from '../redux/actions/index.js';
+import { connect } from 'react-redux';
 import Search from './Search.jsx';
 import ProfileOptions from './ProfileOptions.jsx';
 import MobileSearch from './MobileSearch.jsx';
@@ -89,9 +88,10 @@ const Header = (props) => {
 												</li>
 											</>
 										: 	<>
-												<li>
-													<Link to="/payment">	
-														<AiOutlineShoppingCart />	
+												<li className="cart-icon-container">
+													<Link to="/payment">
+														<AiOutlineShoppingCart className="cart-icon" />
+														<div className="cart-length">{props.quantity > 0 ? props.quantity : 0}</div>
 													</Link>
 												</li>
 												<li className="header-user">
@@ -126,16 +126,10 @@ const Header = (props) => {
 	)
 }
 
-// const mapStateToProps = state => {
-// 	return {
-// 		contador: state.contador,
-// 	}
-// }
+const mapStateToProps = state => {
+	return {
+		quantity: state.cart.length,
+	}
+}
 
-// const mapDispatchToProps = {
-// 	aumentar,
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Header);
-
-export default Header;
+export default connect(mapStateToProps, null)(Header);

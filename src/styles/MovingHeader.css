@@ -24,6 +24,10 @@
 	font-size: 28px;
 }
 
+.cart-length-moving {
+    top: 12px !important;
+}
+
 @media all and (max-width: 540px) {
 	.moving-header-h2 {
 		display: none;

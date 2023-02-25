@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import Search from './Search.jsx';
 import ProfileOptions from './ProfileOptions.jsx';
 import MobileSearch from './MobileSearch.jsx';
@@ -12,7 +13,7 @@ import {
 } from 'react-icons/ai';
 import '../styles/MovingHeader.css';
 
-const MovingHeader = ({ handleShowMenu }) => {
+const MovingHeader = (props) => {
 	const [isLogged, setIsLogged] = useState(true);
 
 	return (
@@ -55,7 +56,8 @@ const MovingHeader = ({ handleShowMenu }) => {
 									: 	<>
 											<li>
 												<Link to="/payment">	
-													<AiOutlineShoppingCart />	
+													<AiOutlineShoppingCart className="cart-icon" />
+													<div className="cart-length cart-length-moving">{props.quantity > 0 ? props.quantity : 0}</div>
 												</Link>
 											</li>
 											<li className="header-user">
@@ -76,7 +78,7 @@ const MovingHeader = ({ handleShowMenu }) => {
 					<i>
 						<AiOutlineSearch />
 					</i>		
-					<i onClick={handleShowMenu}>
+					<i onClick={props.handleShowMenu}>
 						<AiOutlineMenu />
 					</i>
 				</div>		
@@ -86,4 +88,10 @@ const MovingHeader = ({ handleShowMenu }) => {
 	)
 }
 
-export default MovingHeader;
+const mapStateToProps = state => {
+	return {
+		quantity: state.cart.length,
+	}
+}
+
+export default connect(mapStateToProps, null)(MovingHeader)

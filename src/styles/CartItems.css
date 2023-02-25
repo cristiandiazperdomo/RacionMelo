@@ -15,11 +15,18 @@
 	width: 50%;
 }
 
+.CartItem-img {
+	height: 80px;
+	width: 80px;
+	max-width: 50%;
+}
+
 .CartItem-description {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	margin: 4px 0px 4px 20px;
+	width: 50%;
 }
 
 .CartItem-description button {
@@ -43,11 +50,6 @@
 	font-weight: 600;
 	font-size: 12px;
 	color: var(--dark-gray);
-}
-
-.CartItem-img {
-	height: 80px;
-	width: 80px;
 }
 
 .CartItem-description-right {

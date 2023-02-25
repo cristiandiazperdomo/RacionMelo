@@ -72,10 +72,23 @@
 .Cart-list {
 	height: 292px;
     padding-right: 16px;
+    width: 100%;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	-webkit-overflow-scrolling: touch; /* Propiedad necesaria para el desplazamiento fluido en dispositivos móviles */
 	scroll-snap-type: y mandatory; /* Habilita el deplazamiento de los puntos de interrupción en el eje X */
+}
+
+.Cart-list::-webkit-scrollbar {
+	opacity: 0 !important;
+}
+
+.Cart-list::-webkit-scrollbar-thumb {
+	background-color: var(--gray);
+}
+
+.Cart-list:hover::-webkit-scrollbar {
+	opacity: 1 !important;
 }
 
 .Cart-list-go-back  {
@@ -191,7 +204,7 @@
 
 @media all and (max-width: 756px) {
 	.Cart {
-		margin: 40px;
+		margin: 20px;
 	}
 
 	.Cart-container {

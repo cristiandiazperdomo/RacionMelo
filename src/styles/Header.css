@@ -94,6 +94,31 @@
     font-size: 12px;
 }
 
+.cart-icon {
+    position: relative;
+}
+
+
+.cart-length {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 128px;
+    top: 60px;
+    width: 12px;
+    height: 12px;
+    font-weight: 600;
+    border-radius: 50%;
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.cart-icon-container:hover .cart-length {
+    background-color: var(--white);
+    color: var(--orange);
+}
+
 .header-user:hover .profile-options-container {
     display: block;
 }
