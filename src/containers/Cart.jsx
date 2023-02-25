@@ -1,18 +1,21 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { calculateCartTotal } from '../redux/actions/index.js';
 import { Link } from 'react-router-dom';
-import { MyContext } from '../context/MyContext';
 import { HiOutlineArrowNarrowLeft } from 'react-icons/hi'
 import CartItem from '../components/CartItems.jsx';
 import EmptyShoppingCart from '../assets/logos/dog-empty-shopping-cart.png';
 import '../styles/Cart.css';
 
-const Cart = () => {
+const Cart = (props) => {
 	const [isCart, setIsCart] = useState(false);
-	const { petFood } = useContext(MyContext); 
+	const { state, calculateCartTotal } = props;
+	const petFood = state;
 
 	useEffect(() => {
 		petFood.cart.length > 0 ? setIsCart(true) : setIsCart(false);
-	}, [petFood.cart])
+		calculateCartTotal(petFood.cart);
+	}, [])
 
 	return (
 		<div className="Cart">
@@ -83,4 +86,14 @@ const Cart = () => {
 	)
 }
 
-export default Cart;
+const mapStateToProps = state => {
+	return {
+		state,
+	}
+}
+ 
+const mapDispatchToProps = {
+	calculateCartTotal,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

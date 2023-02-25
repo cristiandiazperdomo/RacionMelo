@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import { MyContext } from '../context/MyContext';
+import React from 'react';
+import { connect } from 'react-redux';
+import { addToCart } from '../redux/actions/index.js';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import '../styles/ArticlesCard.css';
 
-const ArticlesCard = () => {
-	const { petFood, addToCart } = useContext(MyContext);
-
+const ArticlesCard = (props) => {
+	const petFood = props.state;
 	const handleAddToCart = (id) => {
-		addToCart(petFood.articles[id - 1]);
+		props.addToCart(petFood.articles[id - 1]);
 	}
 	
 	return (
@@ -42,4 +42,14 @@ const ArticlesCard = () => {
 	)
 }
 
-export default ArticlesCard;
+const mapStateToProps = state => {
+	return {
+		state,
+	}
+}
+
+const mapDispatchToProps = {
+	addToCart,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArticlesCard);

@@ -4,8 +4,6 @@
 	width: 100%;
 	margin-top: 24px;
 	margin-bottom: 24px;
-		-webkit-overflow-scrolling: touch; /* Propiedad necesaria para el desplazamiento fluido en dispositivos móviles */
-	scroll-snap-type: x mandatory; /* Habilita el deplazamiento de los puntos de interrupción en el eje X */
 }
 
 .CartItem {
@@ -79,11 +77,18 @@
 	border: 1px solid var(--dark-gray);
 	width: 24px;
 	box-sizing: border-box;
+	user-select: none;
+}
+
+.CartItem-amount input::selection {
+  background-color: var(--white);
+  color: var(--black);
 }
 
 /* oculta los controles de número */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
+	user-select: none;
 	-webkit-appearance: none;
 	margin: 0;
 }
