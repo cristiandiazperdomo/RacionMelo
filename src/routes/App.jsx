@@ -5,6 +5,7 @@ import Home from '../pages/Home.jsx';
 import Login from '../pages/Login.jsx';
 import SingUp from '../pages/SingUp.jsx';
 import Payment from '../pages/Payment.jsx';
+import ProductView from '../pages/ProductView.jsx';
 import useArrayArticles from '../hooks/useArrayArticles.js';
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
 						<Route exact path="/login" element={<Login />}></Route>
 						<Route exact path="/singup" element={<SingUp />}></Route>
 						<Route exact path="/payment" element={<Payment />}></Route>
+						<Route exact path="/productview" element={<ProductView />}></Route>
 					</Routes>
 				</Layaout>
 		</HashRouter>

@@ -21,6 +21,7 @@
     text-align: center;
     border-radius: 12px;
     width: 360px;
+    transform: scale(-1, 1);
 }
 
 .banner-left-side-container {

@@ -2,10 +2,10 @@ import { applyMiddleware, compose, legacy_createStore as createStore } from 'red
 
 import reducer from './reducers/index.js';
 
-import img from '../assets/banners/food.png';
-import img2 from '../assets/banners/food2.png';
-import img3 from '../assets/banners/food3.png';
-import img4 from '../assets/banners/food4.png';
+import img from '../assets/feed/young_dog.png';
+import img2 from '../assets/feed/young_dog1.png';
+import img3 from '../assets/feed/young_dog2.png';
+import img4 from '../assets/feed/young_dog.png';
 
 const initialPetFood = {
     categories: [
