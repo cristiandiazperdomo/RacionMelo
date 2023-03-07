@@ -60,6 +60,8 @@ const removeFromCart = (state, id) => {
     };
 };
 
+
+
 const reducer = (state, action) => {
 	switch (action.type) {
 	case 'ADD_TO_CART': {
@@ -79,6 +81,12 @@ const reducer = (state, action) => {
             ...state,
             total: calculateCartTotal(state.cart).total,
             totalPlusShipping: calculateCartTotal(state.cart).totalPlusShipping,
+        }
+    }
+case 'DELIVERY_INFO': {
+        return {
+            ...state,
+            deliveryInfo: action.payload,
         }
     }
 	default: 

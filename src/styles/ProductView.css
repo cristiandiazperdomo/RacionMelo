@@ -1,6 +1,8 @@
 @import '_vars';
 
 .ProductView {
+	min-height: 100vh;
+	max-height: 100%;
 	width: 100%;
 	padding: 0 80px;
 	display: flex;
@@ -13,7 +15,6 @@
 	font-size: 12px;
 	width: 100%;
 	padding: 24px 0 28px 0;
-	color: rgba(0, 0, 0, .2);
 }
 
 .Categories-routes span:nth-child(1) {
@@ -21,6 +22,7 @@
 }
 
 .Categories-routes span {
+	color: rgba(0, 0, 0, .2);
 	margin: 0 6px;
 }
 

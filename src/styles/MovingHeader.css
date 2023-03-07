@@ -1,14 +1,10 @@
 .main-header-moving {
-    box-shadow: inset 0px 60px 20px 0px rgb(255 255 255) !important;
-    display: none;
-}
-.main-header-moving {
 	position: fixed ;
 	width: 100%;
 	z-index: 2024;
     box-sizing: border-box;
     width: 100%;
-	/*transition: width 3s ease-in-out;*/
+	background-color: var(--white);
 }
 
 .moving {

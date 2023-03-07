@@ -1,6 +1,7 @@
 .ShipmentStation {
 	padding: 40px 80px;
 	font-size: 12px;
+	position: relative;
 }
 
 .ShipmentStation-container {
@@ -15,8 +16,8 @@
 }
 
 .ShipmentStation-top {
+	background-color: var(--white);
 	padding: 16px 0px 16px 20px;
-	border: 1px solid var(--dark-gray);
 	border-radius: 4px;
 	margin-bottom: 16px;
 }
@@ -35,7 +36,7 @@
 }
 
 .ShipmentStation-bottom {
-	border: 1px solid var(--dark-gray);
+	background-color: var(--white);
 	border-radius: 4px;
 	padding: 16px;
 }
@@ -124,7 +125,7 @@
 }
 
 .ShipmentStation-right {
-	border: 1px solid var(--dark-gray);
+	background-color: var(--white);	
 	border-radius: 4px;
 	padding: 16px;
 	width: 40%;

@@ -14,19 +14,23 @@ body {
 
 h1 {
     margin: 0;
+    color: #333;
 }
 
 p {
     margin: 0;
+    color: #333;
 }
 
 input {
     font-family: 'Dosis', sans-serif;
     font-size: 16px;
     background-color: var(--gray);
+    color: #333;
 }
 
 button {
     font-family: 'Dosis', sans-serif !important;
+    color: #333;
     cursor: pointer;
 }

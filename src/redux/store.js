@@ -57,16 +57,24 @@ const initialPetFood = {
     }],
     total: 0,
     totalPlusShipping: 0,
+    deliveryInfo: {
+        userName: 'Cristian Díaz',
+        address: 'Calle Evergreen Terrace 742',
+        city: 'Springfield',
+        postalCode: '65453',
+        phoneNumber: '898 787 676',
+        email: 'email.amazon@gmail.com',
+    },
     cart: [
-        {
-            id: 1,
-            name: "Alimento para gatos Premium",
-            urlImage: img,
-            easyDescription: "Alimento completo para gatos con sabor a pollo.",
-            complexDescription: "Este alimento premium para gatos contiene una combinación perfecta de proteínas de alta calidad, vitaminas y minerales para mantener una salud óptima y un pelaje brillante. Con sabor a pollo, aseguramos que los gatos encuentren el sabor irresistible. Además, incluye antioxidantes para una digestión saludable y prebióticos para un sistema digestivo fuerte.",
-            price: 25.99,
-            amount: 1,
-        },
+        // {
+        //     id: 1,
+        //     name: "Alimento para gatos Premium",
+        //     urlImage: img,
+        //     easyDescription: "Alimento completo para gatos con sabor a pollo.",
+        //     complexDescription: "Este alimento premium para gatos contiene una combinación perfecta de proteínas de alta calidad, vitaminas y minerales para mantener una salud óptima y un pelaje brillante. Con sabor a pollo, aseguramos que los gatos encuentren el sabor irresistible. Además, incluye antioxidantes para una digestión saludable y prebióticos para un sistema digestivo fuerte.",
+        //     price: 25.99,
+        //     amount: 1,
+        // },
         {
             id: 2,
             name: "Alimento para perros Adultos",

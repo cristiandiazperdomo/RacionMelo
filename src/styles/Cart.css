@@ -101,12 +101,12 @@
 	font-size: 12px;
 	text-decoration: none;
 	font-weight: 800;
-	color: var(--purple);
+	color: rgb(130, 188, 75);;
 }
 
 .Cart-list-go-back svg {
 	margin-right: 8px;
-	color: var(--purple);
+	color: rgb(130, 188, 75);;
 }
 
 /*RIGTH SIDE*/
@@ -195,7 +195,7 @@
 	cursor: pointer;
 	font-size: 12px;
 	width: 100%;
-	background-color: var(--purple);
+	background-color: rgb(130, 188, 75);;
 	color: var(--white);
 	border: none;
 	padding: 8px 0;

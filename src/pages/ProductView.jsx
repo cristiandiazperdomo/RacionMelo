@@ -53,9 +53,6 @@ const ProductView = (props) => {
 	};
 
 	const handleRemoveItem = id => {
-		if (productAmount === 0) {
-			return false; // it won't execute remove item action
-		}
 		removeFromCart(id);
 		setProductAmount(productAmount - 1)
 		calculateCartTotal();
@@ -139,7 +136,11 @@ const ProductView = (props) => {
 							</div>
 							<div className="ProductView-goToPay">
 								<Link to="/payment">
-									<button type="button" onClick={() => handleAddToCart(product)}>Comprar Ahora</button>
+									<button 
+										type="button" 
+										onClick={() => productAmount === 0 ? handleAddToCart(product) : false }>
+											Comprar Ahora
+									</button>
 								</Link>
 								<button type="button" onClick={() => handleAddToCart(product)}>Añadir al carrito</button>
 							</div>

@@ -25,3 +25,10 @@ export const calculateCartTotal = payload => {
 		payload,
 	}
 }
+
+export const addDeliveryInfo = payload => {
+	return {
+		type: 'DELIVERY_INFO',
+		payload,
+	}
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Layaout from '../containers/Layaout.jsx';
 import Home from '../pages/Home.jsx';
@@ -11,6 +11,9 @@ import SuccessfullPurchase from '../pages/SuccessfullPurchase.jsx';
 import useArrayArticles from '../hooks/useArrayArticles.js';
 
 const App = () => {
+
+    window.scrollTo(0, 0);
+
 	return (			
 		<HashRouter>
 				<Layaout>

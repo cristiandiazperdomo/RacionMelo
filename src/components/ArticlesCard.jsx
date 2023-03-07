@@ -26,9 +26,6 @@ const ArticlesCard = (props) => {
 										<h3>${food.price}</h3>
 										<p className="discount">33% OFF</p>
 									</div>
-									<i className="addToCart" onClick={() => handleAddToCart(food.id)}>
-										<AiFillPlusCircle />
-									</i>
 								</div>
 								<div className="shipping">
 									<p>Envío disponible</p>

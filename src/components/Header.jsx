@@ -32,7 +32,7 @@ const Header = (props) => {
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
 		};
-	}, []);
+	}, [isMoving]);
 
 	const handleShowMenu = () => {
 		setShowMenu(!showMenu);

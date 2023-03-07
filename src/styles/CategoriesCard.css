@@ -19,7 +19,12 @@
 
 .categories-card-container:hover {
 	background-color: var(--orange);
-	color: var(--white);
+	color: var(--white) !important;
+}
+
+.categories-card-container:hover p {
+	color: var(--white) !important;
+
 }
 
 .categories-card {

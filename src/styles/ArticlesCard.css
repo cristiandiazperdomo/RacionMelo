@@ -87,6 +87,11 @@
 	margin-top: 4px;
 	color: var(--main-bg-color);
 }
+
+.shipping p {
+	color: var(--main-bg-color);
+}
+
 .easyDescription {
 	opacity: 0;
 	transition: .2s opacity;
