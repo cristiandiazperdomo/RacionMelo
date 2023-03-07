@@ -32,7 +32,7 @@
 }
 
 .categories-card-top img {
-	object-fit: fill;
+	object-fit: cover;
 	border-radius: 12px;
 	width: 150px;
 	height: 200px;

@@ -5,35 +5,37 @@ import useArrayArticles from '../hooks/useArrayArticles.js';
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md'
 import '../styles/Articles.css';
 
-const Articles = ({ state }) => {
+const Articles = (props) => {
 	const [cart, setCart] = useState([]);
+
+	const { state, type, id } = props;
 
 	const petFood = state;
 
-	const scrollLeft = () => {
-		if (document.querySelector(".articles-cards")) {
-			const hourly = document.querySelector(".articles-cards");
-			hourly.scrollLeft -= 420;
+	const scrollLeft = id => {
+		if (document.querySelector(`.articles-cards${id}`)) {
+			const hourly = document.querySelector(`.articles-cards${id}`);
+			hourly.scrollLeft -= 472; 
 		}
 	};
 
-	const scrollRight = () => {
-		if (document.querySelector(".articles-cards")) {
-			const hourly = document.querySelector(".articles-cards");
-			hourly.scrollLeft += 420;
+	const scrollRight = id => {
+		if (document.querySelector(`.articles-cards${id}`)) {
+			const hourly = document.querySelector(`.articles-cards${id}`);
+			hourly.scrollLeft += 472;
 		}
 	};
 
 	return (
 		<div className="articles">
-			<h3 className="articles-h3">Más comprados</h3>
+			<h3 className="articles-h3">{type}</h3>
 			<div className="articles-cards-container">
 				<MdKeyboardArrowLeft 
-				onClick={scrollLeft} />
+				onClick={() => scrollLeft(id)} />
 				<MdKeyboardArrowRight
-				onClick={scrollRight} />
+				onClick={() => scrollRight(id)} />
 			</div>
-			<div className="articles-cards">
+			<div className={`articles-cards articles-cards${id}`}>
 				<ArticlesCard 
 					petFood={petFood}
 					cart={cart}

@@ -57,7 +57,8 @@ const initialPetFood = {
     }],
     total: 0,
     totalPlusShipping: 0,
-    cart: [{
+    cart: [
+        {
             id: 1,
             name: "Alimento para gatos Premium",
             urlImage: img,

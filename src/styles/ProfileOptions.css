@@ -8,6 +8,7 @@
 	border-top: 2px solid var(--white);
 	box-shadow: 1px 4px 4px 0px var(--black);
 	background-color: var(--white);
+	z-index: 2023;
 }
 
 .profile-options {

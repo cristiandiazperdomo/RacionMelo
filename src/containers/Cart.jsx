@@ -78,9 +78,11 @@ const Cart = (props) => {
 							<p>COSTO TOTAL</p>
 							<p>${isCart ? petFood.totalPlusShipping : 0 }</p>
 						</div>
-						<button>CONFIRMAR</button>
+						<Link to="/shipmentstation">
+							<button>CONFIRMAR</button>
+						</Link>
 					</footer>
-					</div>
+				</div>
 			</div>
 		</div>		
 	)

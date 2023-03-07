@@ -1,16 +1,68 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { addToCart, removeFromCart, calculateCartTotal } from '../redux/actions/index.js';
-import { AiOutlinePlus, AiOutlineMinus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { Link, useParams } from 'react-router-dom';	
+import { 
+	addToCart, 
+	removeFromCart, 
+	calculateCartTotal,
+	getImageSource,
+} from '../redux/actions/index.js';
+import { 
+	AiOutlinePlus,
+	AiOutlineMinus,
+ 	AiFillStar,
+ 	AiOutlineStar 
+} from 'react-icons/ai';
 import { FaTruck } from 'react-icons/fa';
 import '../styles/ProductView.css';
 
 const ProductView = (props) => {
-	const { articles } = props;
-	const { ...product } = articles[0];
-	
+	const [product, setProduct] = useState([]);
+	const [productAmount, setProductAmount] = useState(0);
 	const { 
-		id,
+		articles,
+		cart,
+		addToCart,
+		removeFromCart,
+	} = props;
+
+	const { id } = useParams();
+
+	useEffect(() => {
+		const isAlreadyInCart = cart.some(item => item.id === Number(id) + 1); //is the product in cart?
+		if (isAlreadyInCart) {
+			const productos2 = cart.map(item => { // get from cart
+			if (item.id === Number(id) + 1) {
+				setProduct(item);
+				setProductAmount(item.amount);
+			}
+		})
+		} else {
+			const productos2 = articles.map(item => { // get from articles
+				if (item.id === Number(id) + 1) {
+					setProduct(item);
+				}
+			})
+		}
+	}, [id, cart, articles, product]);
+
+	const handleAddToCart = product => {
+		addToCart(product);
+		setProductAmount(productAmount + 1)
+		calculateCartTotal();
+	};
+
+	const handleRemoveItem = id => {
+		if (productAmount === 0) {
+			return false; // it won't execute remove item action
+		}
+		removeFromCart(id);
+		setProductAmount(productAmount - 1)
+		calculateCartTotal();
+	};
+
+
+	const { 
 		name,
 		urlImage,
 		easyDescription,
@@ -18,18 +70,6 @@ const ProductView = (props) => {
 		price,
 		amount,  
 	} = product;
-
-	const { addToCart, removeFromCart } = props;
-
-	const handleAddToCart = product => {
-		addToCart(product);
-		calculateCartTotal();
-	};
-
-	const handleRemoveItem = id => {
-		handleRemoveItem(id);
-		calculateCartTotal();
-	};
 
 	return (
 		<div className="ProductView">
@@ -81,17 +121,14 @@ const ProductView = (props) => {
 						<div className="ProductView-options">
 							<div className="ProductView-amount">
 								<div className="ProductView-amount-container">
-									<i>
+									<i onClick={() => handleRemoveItem(product.id)} >
 										<AiOutlineMinus 
-										className="CartItem-minus view" 
-										onClick={() => handleRemoveItem(product.id)} 
-										/>
+											className="CartItem-minus view" />
 									</i>	
-									<input type="number" value={product.amount} />
-									<i>
+									<input type="number" value={productAmount} />
+									<i onClick={() => handleAddToCart(product)} >
 										<AiOutlinePlus
-											className="CartItem-plus view" 
-											onClick={() => handleAddToCart(product)} 
+											className="CartItem-plus view"
 										/>
 									</i>
 								</div>
@@ -101,8 +138,10 @@ const ProductView = (props) => {
 								</div>
 							</div>
 							<div className="ProductView-goToPay">
-								<button type="button" onClick={() => handleAddToCart(product)}>Comprar Ahora</button>
-								<button type="button" onClick={() => handleAddToCart(product)}>Add to Cart</button>
+								<Link to="/payment">
+									<button type="button" onClick={() => handleAddToCart(product)}>Comprar Ahora</button>
+								</Link>
+								<button type="button" onClick={() => handleAddToCart(product)}>Añadir al carrito</button>
 							</div>
 						</div>
 						<div className="ProductView-secondary-info">
@@ -139,6 +178,7 @@ const ProductView = (props) => {
 const mapStateToProps = state => {
 	return {
 		articles: state.articles,
+		cart: state.cart
 	}
 }
 

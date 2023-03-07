@@ -216,16 +216,25 @@
 	box-sizing: border-box;
 	border-radius: 16px;
 	cursor: pointer;
+	min-width: calc(50% - 8px);
+}
+
+.ProductView a {
+    min-width: 50%;
+    max-width: 200px;
+	margin: 0 8px 0 0;
 }
 
 .ProductView-goToPay button:nth-child(1) {
-	margin: 0 8px 0 0;
+	width: 100%;
 	background-color: var(--main-bg-color);
 	color: var(--white);
 }
 
 .ProductView-goToPay button:nth-child(2) {
 	border: 1px solid var(--main-bg-color);
+	width: 50%;
+	max-width: 200px;
 	background-color: var(--white);
 	color: var(--main-bg-color);
 }

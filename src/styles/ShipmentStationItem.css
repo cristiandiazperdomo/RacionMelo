@@ -1,0 +1,73 @@
+.ShipmentStation-articles {
+	overflow-y: scroll;
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch; /* Propiedad necesaria para el desplazamiento fluido en dispositivos móviles */
+	scroll-snap-type: y mandatory;
+	height: 272px;
+}
+.ShipmentStation-articles::-webkit-scrollbar {
+	opacity: 0 !important;
+}
+
+.ShipmentStation-articles::-webkit-scrollbar-thumb {
+	background-color: var(--dark-gray);
+}
+
+.ShipmentStation-articles:hover::-webkit-scrollbar {
+	opacity: 1 !important;
+}
+
+.ShipmentStationItem-container {
+	margin-bottom: 16px;
+}
+
+.ShipmentStationItem {
+	display: flex;
+}
+
+.ShipmentStationItem-left {
+	width: 120px;
+	height: 120px;
+}
+
+.ShipmentStationItem-left img {
+	width: 120px;
+	height: 120px;
+}
+
+.ShipmentStationItem-description-right {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin: 0 28px;
+}
+
+.ShipmentStationItem-description h4 {
+	font-size: 16px;
+}
+
+.ShipmentStationItem-description-right p {
+	font-size: 14px;
+}
+
+.ShipmentStationItem-amount {
+	width: 100%;
+}
+
+.ShipmentStationItem-amount p {
+	font-weight: 700;
+	text-align: right;
+}
+
+@media all and (max-width: 425px) {
+	.ShipmentStationItem-description-right {
+		margin: 0 12px;
+	}
+}
+
+@media all and (max-width: 330px) {
+	.ShipmentStationItem-description h4 {
+		font-size: 14px;
+	}
+}

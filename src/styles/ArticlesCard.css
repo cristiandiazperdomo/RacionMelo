@@ -1,5 +1,10 @@
 @import '_vars';
 
+.articles-card-a {
+	color: rgba(0, 0, 0, .9);
+	text-decoration: none;
+}
+
 .articles-card-container {
 	cursor: pointer;
 	width: 220px;
@@ -15,6 +20,7 @@
 }
 
 .articles-card-container:last-child {
+	
 }
 
 .articles-card {

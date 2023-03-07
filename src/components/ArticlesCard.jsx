@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addToCart } from '../redux/actions/index.js';
 import { AiFillPlusCircle } from 'react-icons/ai';
@@ -13,30 +14,32 @@ const ArticlesCard = (props) => {
 	return (
 		<>
 			{petFood.articles.map(food => 
-				<div className="articles-card-container" key={food.id}>
-					<div className="articles-card">
-						<div className="articles-card-top">
-							<img src={food.urlImage} alt="árticulo" />
-						</div>
-						<div className="articles-card-bottom">
-							<div className="articles-options">
-								<div className="money">
-									<h3>${food.price}</h3>
-									<p className="discount">33% OFF</p>
+				<Link className="articles-card-a" to={`/productview/${food.id - 1}`}>
+					<div className="articles-card-container" key={food.id}>
+						<div className="articles-card">
+							<div className="articles-card-top">
+								<img src={food.urlImage} alt="árticulo" />
+							</div>
+							<div className="articles-card-bottom">
+								<div className="articles-options">
+									<div className="money">
+										<h3>${food.price}</h3>
+										<p className="discount">33% OFF</p>
+									</div>
+									<i className="addToCart" onClick={() => handleAddToCart(food.id)}>
+										<AiFillPlusCircle />
+									</i>
 								</div>
-								<i className="addToCart" onClick={() => handleAddToCart(food.id)}>
-									<AiFillPlusCircle />
-								</i>
-							</div>
-							<div className="shipping">
-								<p>Envío disponible</p>
-							</div>
-							<div className="easyDescription">
-								{food.easyDescription}
+								<div className="shipping">
+									<p>Envío disponible</p>
+								</div>
+								<div className="easyDescription">
+									{food.easyDescription}
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</Link>
 			)}
 		</>
 	)

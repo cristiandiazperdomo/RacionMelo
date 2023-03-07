@@ -1,0 +1,269 @@
+.ShipmentStation {
+	padding: 40px 80px;
+	font-size: 12px;
+}
+
+.ShipmentStation-container {
+	display: flex;
+}
+
+.ShipmentStation-left {
+	width: 60%;
+	border-radius: 8px;
+	margin-right: 16px;
+	box-sizing: border-box;
+}
+
+.ShipmentStation-top {
+	padding: 16px 0px 16px 20px;
+	border: 1px solid var(--dark-gray);
+	border-radius: 4px;
+	margin-bottom: 16px;
+}
+
+.title-page {
+	margin: 0;
+	font-size: 24px;
+}
+
+.review {
+	margin-bottom: 20px;
+}
+
+.ShipmentStation-articles {
+
+}
+
+.ShipmentStation-bottom {
+	border: 1px solid var(--dark-gray);
+	border-radius: 4px;
+	padding: 16px;
+}
+
+.delivery-information {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.delivery-information button {
+	background-color: rgba(0, 0, 0, .08);
+	border: none;
+	border-radius: 16px;
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	width: 108px;
+	font-weight: 500;
+	height: 24px;
+}
+
+.delivery-user-information {
+	display: flex;
+}
+
+.delivery-user-information ul {
+	padding: 0;
+	list-style: none;
+}
+
+.delivery-user-information ul:nth-child(1) {
+	width: 30%;
+}
+
+.delivery-user-information ul:nth-child(2) {
+	width: 70%;
+}
+
+
+.delivery-user-information ul li {
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px
+}
+
+
+.delivery-user-information .modify-delivery {
+	list-style: none;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	padding: 0;
+	width: 70%;
+}
+
+.modify-delivery li {
+	margin: 0 !important;
+	width: 100%;
+}
+
+.modify-delivery li input {
+	background-color: var(--white);
+	margin-bottom: 8px;
+	font-size: 12px;
+	border: none;
+	padding: 0;
+	width: 80%;
+} 
+
+.modify-delivery li input:focus {
+	outline: none;
+} 
+
+.delivery-user-information .delivery-data {
+
+}
+
+.delivery-user-information ul li h4 {
+	font-weight: 600;
+	margin: 0;
+	margin-right: 4px;
+}
+
+.delivery-user-information ul li p {
+	color: rgba(0, 0, 0, .6);
+}
+
+.ShipmentStation-right {
+	border: 1px solid var(--dark-gray);
+	border-radius: 4px;
+	padding: 16px;
+	width: 40%;
+	box-sizing: border-box;
+}
+
+.PaymentDetails {
+}
+
+.PaymentDetails h3 {
+	border-top: 1px solid rgba(0, 0, 0, .08);
+	border-bottom: 1px solid rgba(0, 0, 0, .08);
+	font-size: 18px;
+	padding: 24px 0 16px 0;
+}
+
+.PaymentDetails ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.PaymentDetails ul li {
+	display: flex;
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.PaymentDetails ul li input[type="radio"]{
+	width: 20px;
+  	height: 20px;
+  	border-radius: 50%;
+	margin: 0;
+	margin-right: 8px;
+}
+
+input[type="radio"]:focus {
+	background-color: black;
+}
+
+.PaymentDetails ul li label {
+	font-weight: 400;
+}
+
+.credit-card-info {
+	display: flex;
+}
+
+.credit-card-info li {
+	margin-right: 4px;
+	padding: 4px;
+	background-color: rgba(0, 0, 0, .04);
+}
+
+.credit-card-info li img {
+	width: 40px;
+}
+
+
+.Info-card {
+
+}
+
+.Info-card ul {
+	list-style: none;
+	padding: 0;
+}
+
+.Info-card ul li {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 16px;
+}
+
+.Info-card ul li label {
+	margin-bottom: 8px;
+}
+
+.Info-card ul li input {
+	font-size: 12px;
+	border: none;
+	background-color: var(--white);
+	padding: 8px 16px;
+}
+
+.Info-card ul li input:focus {
+	outline: none;
+}
+
+.ShipmentStation-total {
+	margin: 24px 0 0 0;
+}
+
+.ShipmentStation-total h4 {
+	font-size: 16px;
+	margin: 0;
+}
+
+.ShipmentStation-button {
+	text-decoration: none;
+}
+
+.ShipmentStation-button button {
+	background-color: var(--orange) !important;
+	margin: 24px 0;
+}
+
+@media all and (max-width: 1024px) {
+	.ShipmentStation {
+		padding: 40px 40px;		
+	}
+}
+
+@media all and (max-width: 720px) {
+	.ShipmentStation {
+	}
+
+	.ShipmentStation-left, .ShipmentStation-right {
+		width: 100%;
+	}
+
+	.ShipmentStation-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.ShipmentStation-right {
+		margin-top: 20px;
+	}
+}
+
+@media all and (max-width: 540px) {
+	.ShipmentStation {
+		padding: 40px 20px;
+	}
+}
+
+@media all and (max-width: 375px) {
+	.ShipmentStation {
+		padding: 40px 0;
+	}	
+}

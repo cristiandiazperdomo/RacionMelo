@@ -1,7 +1,6 @@
 @import '_vars';
 
 .articles {
-	height: 480px;
 	margin: 0 12px 20px;
 	box-sizing: border-box;
 }
@@ -41,15 +40,21 @@
 
 .articles-cards {
 	display: flex;
-	overflow-x: scroll;
+	overflow-x: hidden;
 	scroll-behavior: smooth;
-	height: 480px;
 	-webkit-overflow-scrolling: touch; /* Propiedad necesaria para el desplazamiento fluido en dispositivos móviles */
 	scroll-snap-type: x mandatory; /* Habilita el deplazamiento de los puntos de interrupción en el eje X */
+}
+
+.articles-cards > :last-child .articles-card-container {
+	margin-right: 0;
 }
 
 @media all and (max-width: 720px) {
 	.articles-cards-container {
 		display: none;
 	}
+	.articles-cards {
+		overflow-x: scroll;
+	}	
 }

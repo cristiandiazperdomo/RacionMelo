@@ -27,6 +27,7 @@
 	width: 44px;
     height: 32px;
 	background-color: rgb(249, 166, 40);
+	color: var(--white);
 }
 
 .search-icon:hover {
