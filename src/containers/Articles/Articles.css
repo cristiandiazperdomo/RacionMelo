@@ -1,0 +1,58 @@
+.articles {
+	margin: 0 12px 20px;
+	box-sizing: border-box;
+}
+
+.articles .articles-h3 {
+	font-size: 24px;
+	margin: 16px 0;
+}
+
+.articles-cards-container {
+	display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: absolute;
+    width: 99%;
+    height: 60px;
+    margin-left: -8px;
+    margin-top: 140px;
+    align-items: center;
+}
+
+.articles-cards-container svg {
+	height: 56px;
+	width: 56px;
+	border-radius: 50%;
+	background-color: var(--white);
+	cursor: pointer;
+	transition: .2s background-color;
+	transition: .2s color;
+	z-index: 2023;
+}
+
+.articles-cards-container svg:hover {
+	background-color: var(--orange);
+	color: var(--white);
+}
+
+.articles-cards {
+	display: flex;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch; /* Propiedad necesaria para el desplazamiento fluido en dispositivos móviles */
+	scroll-snap-type: x mandatory; /* Habilita el deplazamiento de los puntos de interrupción en el eje X */
+}
+
+.articles-cards > :last-child .articles-card-container {
+	margin-right: 0;
+}
+
+@media all and (max-width: 720px) {
+	.articles-cards-container {
+		display: none;
+	}
+	.articles-cards {
+		overflow-x: scroll;
+	}	
+}

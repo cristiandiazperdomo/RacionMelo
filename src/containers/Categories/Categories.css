@@ -1,0 +1,35 @@
+.categories-container {
+	padding: 0 12px;
+    margin: 16px 0;
+}
+
+.categories-h3 {
+	font-size: 24px;
+	margin: 16px 0;
+}
+
+.categories {
+	display: grid;
+	grid-template-columns: repeat(3, 33.3%);
+    box-sizing: border-box;
+}
+
+@media all and (max-width: 1024px) {
+    .categories {
+    	grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media all and (max-width: 755px) {
+    .categories {
+    	grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media all and (max-width: 425px) {
+    .categories {
+    	box-sizing: border-box;
+        width: 100%;
+        align-items: center;
+    }
+}

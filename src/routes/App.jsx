@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import Layaout from '../containers/Layaout.jsx';
-import Home from '../pages/Home.jsx';
-import Login from '../pages/Login.jsx';
-import SingUp from '../pages/SingUp.jsx';
-import Payment from '../pages/Payment.jsx';
-import ProductView from '../pages/ProductView.jsx';
-import ShipmentStation from '../pages/ShipmentStation.jsx';
-import SuccessfullPurchase from '../pages/SuccessfullPurchase.jsx';
+import Layaout from '../containers/Layaout/Layaout.jsx';
+import Home from '../pages/Home/Home.jsx';
+import Login from '../pages/Login/Login.jsx';
+import SingUp from '../pages/SingUp/SingUp.jsx';
+import Payment from '../pages/Payment/Payment.jsx';
+import ProductView from '../pages/ProductView/ProductView.jsx';
+import ShipmentStation from '../pages/ShipmentStation/ShipmentStation.jsx';
+import SuccessfullPurchase from '../pages/SuccessfullPurchase/SuccessfullPurchase.jsx';
 import useArrayArticles from '../hooks/useArrayArticles.js';
 
 const App = () => {
