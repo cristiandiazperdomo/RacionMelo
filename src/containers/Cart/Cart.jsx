@@ -15,6 +15,8 @@ const Cart = (props) => {
 	useEffect(() => {
 		petFood.cart.length > 0 ? setIsCart(true) : setIsCart(false);
 		calculateCartTotal(petFood.cart);
+
+		
 	}, [petFood.cart])
 
 	return (

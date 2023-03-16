@@ -7,6 +7,10 @@
 	top: -60px;
 	background-color: var(--white);
 	box-sizing: border-box;
+	z-index: 2000;
+}
+
+.mobile{
 	z-index: 20000;
 }
 

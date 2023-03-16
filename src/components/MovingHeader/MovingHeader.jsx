@@ -16,6 +16,7 @@ import './MovingHeader.css';
 const MovingHeader = (props) => {
 	const [isLogged, setIsLogged] = useState(true);
 	const [isMoving, setIsMoving] = useState(false);
+	const [searchResultsActive, setSearchResultsActive] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -30,6 +31,33 @@ const MovingHeader = (props) => {
 			window.removeEventListener('scroll', handleScroll);
 		};
 	}, [isMoving]);
+
+	const isMobileMenuOpen = () => {
+		const mobileSearch = document.querySelector('.mobile-search-container');
+		const top  = mobileSearch.style.top || undefined;
+		if (top === '-60px' || top === undefined) {
+			mobileSearch.style.top = "0px";
+			mobileSearch.style.position = "fixed";
+		} else {
+			mobileSearch.style.top = '-60px';	
+		}
+	};
+
+	const areaDeBusquedaRef = useRef();
+
+	const isSearchResultsActive = event => {
+		if (areaDeBusquedaRef.current && !areaDeBusquedaRef.current.contains(event.target)){
+			setSearchResultsActive(false);
+		}
+	}
+
+	useEffect(() => {
+		document.addEventListener('click', isSearchResultsActive);
+
+	    return () => {
+	    	document.removeEventListener('click', isSearchResultsActive);
+	    };
+	}, [])
 
 	return (
 		<header className="main-header-moving main-header-moving">
@@ -46,7 +74,10 @@ const MovingHeader = (props) => {
 								</Link>
 							</div>
 						</div>
-						<Search />
+						<Search 
+						areaDeBusquedaRef={areaDeBusquedaRef} 
+						searchResultsActive={searchResultsActive} 
+						setSearchResultsActive={setSearchResultsActive} />
 						<div className="bottom-header-container"> 
 							<div className="left-side">
 								<ul className="ul-main-header">
@@ -90,16 +121,15 @@ const MovingHeader = (props) => {
 					</div> 
 				</div>
 				<div className="main-header-right moving-header">
-					<i>
+					<i onClick={isMobileMenuOpen}>
 						<AiOutlineSearch />
 					</i>		
 					<i onClick={props.handleShowMenu}>
 						<AiOutlineMenu />
 					</i>
-				</div>		
+				</div>
 			</div>
-			<MobileSearch top={top} isMobileMenuOpen={props.isMobileMenuOpen} affect={true} />
-			{ isMoving && <MobileSearch />}
+			{ isMoving && <MobileSearch moving={true} isMoving={isMoving} isMobileMenuOpen={isMobileMenuOpen} />}
 		</header>
 	)
 }

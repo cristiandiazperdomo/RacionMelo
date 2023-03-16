@@ -4,8 +4,7 @@ import SearchResults from '../../containers/SearchResults/SearchResults.jsx';
 import { AiOutlineLeft, AiOutlineSearch } from 'react-icons/ai';
 import './MobileSearch.css';
 
-const MobileSearch = ({ top, isMobileMenuOpen }) => {
-	console.log(top)
+const MobileSearch = ({ moving, isMoving, isMobileMenuOpen }) => {
 	const [searchResultsActive, setSearchResultsActive] = useState(false);
 	const areaDeBusquedaRef = useRef();
 
@@ -25,7 +24,7 @@ const MobileSearch = ({ top, isMobileMenuOpen }) => {
 
 	return (
 		<div
-			className="mobile-search-container" >
+			className={`mobile-search-container ${moving ? "mobile" : ""}`} >
 			<div className="mobile-search">
 				<div className="mobile-search-icon" onClick={isMobileMenuOpen}>
 					<AiOutlineLeft/>
@@ -39,7 +38,7 @@ const MobileSearch = ({ top, isMobileMenuOpen }) => {
 				<div className="mobile-search-icon">
 					<AiOutlineSearch />
 				</div>
-				{ searchResultsActive && <SearchResults /> }
+				{ searchResultsActive && <SearchResults />}
 			</div>
 		</div>
 	)

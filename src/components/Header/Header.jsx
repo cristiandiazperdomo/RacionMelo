@@ -49,10 +49,8 @@ const Header = (props) => {
 			console.log(document.clientWidth)
 			if (document.clientWidth < 768 && window.pageYOffset > 48) {
 				mobileSearch.style.top = "0";
-				mobileSearch.style.position = "fixed";
 			} else {
 				mobileSearch.style.top = '48px';
-				mobileSearch.style.position = "absolute";
 			}
 			setTop(mobileSearch.style.top);
 		} else {
@@ -60,7 +58,6 @@ const Header = (props) => {
 			setTop(mobileSearch.style.top)
 		}
 	};
-
 
 	const isSearchResultsActive = event => {
 		if (areaDeBusquedaRef.current && !areaDeBusquedaRef.current.contains(event.target)){
