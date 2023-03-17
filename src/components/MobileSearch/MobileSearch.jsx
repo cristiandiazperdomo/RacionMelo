@@ -6,6 +6,7 @@ import './MobileSearch.css';
 
 const MobileSearch = ({ moving, isMoving, isMobileMenuOpen }) => {
 	const [searchResultsActive, setSearchResultsActive] = useState(false);
+	const [inputSearchValue, setInputSearchValue] = useState("");
 	const areaDeBusquedaRef = useRef();
 
 	const isSearchResultsActive = event => {
@@ -13,6 +14,15 @@ const MobileSearch = ({ moving, isMoving, isMobileMenuOpen }) => {
 			setSearchResultsActive(false);
 		}
 	}
+
+	const showInputSearchResults = () => {
+		setInputSearchValue(areaDeBusquedaRef.current.value)
+		if (areaDeBusquedaRef.current.value.length > 2) {
+			setSearchResultsActive(true);
+		} else {
+			setSearchResultsActive(false);
+		}
+	} 
 
 	useEffect(() => {
 		document.addEventListener('click', isSearchResultsActive);
@@ -32,13 +42,14 @@ const MobileSearch = ({ moving, isMoving, isMobileMenuOpen }) => {
 				<input 
 					type="text" 
 					name="search" 
-					onClick={() => setSearchResultsActive(!searchResultsActive)} 
+					onChange={showInputSearchResults}
+					onClick={showInputSearchResults}
 					placeholder="Busca algún articulo"
 					ref={areaDeBusquedaRef} />
 				<div className="mobile-search-icon">
 					<AiOutlineSearch />
 				</div>
-				{ searchResultsActive && <SearchResults />}
+				{ searchResultsActive && <SearchResults inputSearchValue={inputSearchValue} />}
 			</div>
 		</div>
 	)

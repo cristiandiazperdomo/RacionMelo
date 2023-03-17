@@ -7,22 +7,16 @@ const SearchResults = ({ articles, inputSearchValue }) => {
 	const [searchs, setSearchs] = useState([]);
 
 	useEffect(() => {
+		let newResults = [];
 		articles.map(item => {
-			if (item.name.includes(inputSearchValue) && inputSearchValue.length > 0) {
-				const isItemAlreadyAddedToResults = searchs.some(search => item.id !== search.id)
-				if (isItemAlreadyAddedToResults) {
-					setSearchs(searchs);
-				} else {
-					setSearchs([ 
-						...searchs, 
-						item,
-					]);
-				}
-			} else {
-				setSearchs([]);
+			const values = inputSearchValue?.toLowerCase();
+			const addToSearchResults = values?.length > 0 ? item.name.toLowerCase().indexOf(values) : undefined;
+			if (addToSearchResults !== -1) {
+				newResults.push(item);
 			}
 		});
-	}, [inputSearchValue])
+		setSearchs(newResults);
+	}, [inputSearchValue]);
 
 	return (
 		<div className="SearchResults mobile">

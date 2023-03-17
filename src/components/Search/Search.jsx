@@ -6,11 +6,20 @@ import './Search.css';
 const Search = ({ areaDeBusquedaRef, searchResultsActive, setSearchResultsActive }) => {
 	const [inputSearchValue, setInputSearchValue] = useState();
 
-	// const inputRef = useRef(null);
+	const inputRef = useRef(null);
 
 	const inputSearch = e => {
 		setInputSearchValue(e.target.value)
 	}
+
+	const showInputSearchResults = () => {
+		setInputSearchValue(inputRef.current.value)
+		if (inputRef.current.value.length > 2) {
+			setSearchResultsActive(true);
+		} else {
+			setSearchResultsActive(false);
+		}
+	} 
 
 	return (
 		<div className="search" ref={areaDeBusquedaRef} >
@@ -20,8 +29,9 @@ const Search = ({ areaDeBusquedaRef, searchResultsActive, setSearchResultsActive
 						type="text"
 						name="search"
 						placeholder="Busca algún articulo"
-						onClick={() => setSearchResultsActive(!searchResultsActive)}
-						onChange={inputSearch} />
+						onClick={showInputSearchResults}
+						onChange={showInputSearchResults} 
+						ref={inputRef} />
 				</div>
 				<div className="search-icon">
 					<AiOutlineSearch />

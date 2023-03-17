@@ -59,8 +59,8 @@ const Header = (props) => {
 		}
 	};
 
-	const isSearchResultsActive = event => {
-		if (areaDeBusquedaRef.current && !areaDeBusquedaRef.current.contains(event.target)){
+	const isSearchResultsActive = event => { //check if the click was clicked out the zone 
+		if (areaDeBusquedaRef.current && !areaDeBusquedaRef.current.contains(event.target)) {
 			setSearchResultsActive(false);
 		}
 	}

@@ -1,7 +1,7 @@
 .SearchResults {
 	position: absolute;
 	margin-top: 46px;
-	background-color: var(--gray);
+	background-color: var(--white);
 	width: 100%;
 	top: 0;
 	left: 0;
