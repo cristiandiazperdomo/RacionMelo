@@ -15,7 +15,7 @@ const Comments = () => {
 					</div>
 				</div>
 				<div className="ask_the_owner">
-					<p className="ask_the_owner_title">Pregúntale a Coca-Cola</p>
+					<p className="ask_the_owner_title">Pregúntale al Dueño</p>
 					<div className="ask_the_owner_form">
 						<input type="text" placeholder="Escribe tu pregunta" />
 						<button>Preguntar</button>	

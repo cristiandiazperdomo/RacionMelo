@@ -1,6 +1,4 @@
 .ProductView {
-	min-height: 100vh;
-	max-height: 100%;
 	width: 100%;
 	padding: 0 80px;
 	display: flex;
@@ -80,7 +78,6 @@
 
 .ProductView-right {
 	width: 40%;
-	height: 100vh;
 }
 
 .ProductView-right-top {
@@ -334,7 +331,6 @@
 	.ProductView-right {
 		width: 100%;
 		margin-left: 0;
-		height: 100vh;
 	}
 
 	.ProductView-info {

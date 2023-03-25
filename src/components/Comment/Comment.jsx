@@ -1,4 +1,5 @@
 import React from 'react';
+import SubComment from '../SubComments/SubComments.jsx';
 import './Comment.css';
 
 const Comment = () => {
@@ -9,6 +10,7 @@ const Comment = () => {
 				de 3 pack cada una. Tengo que hacer de a una la compra? O lo puedo hacer 
 				todo junto?</p>
 			</div>
+			<SubComment />
 		</div>
 	)
 }

@@ -1,0 +1,22 @@
+.SubComment {
+	display: flex;
+	width: 100%;
+	box-sizing: border-box;
+	padding-top: 8px;
+}
+
+.SubComment svg {
+	max-width: 44px;
+    min-width: 44px;
+    max-height: 22px;
+    min-height: 22px;
+	color: rgba(0, 0, 0, .4);
+}
+
+.SubComment_container {
+	padding-top: 4px;
+}
+
+.SubComment_container p {
+	color: rgba(0, 0, 0, .4);
+}

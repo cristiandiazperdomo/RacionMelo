@@ -57,7 +57,7 @@
 }
 
 .ask_the_owner_form input {
-	border: 1px solid rgba(0, 0, 0, .4);
+	border: 1px solid rgba(0, 0, 0, .2);
 	background-color: var(--white);
 	height: 40px;
 	width: 80%;
