@@ -1,22 +1,26 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { addToCart, removeFromCart, calculateCartTotal, calculateTotalForEachProduct } from '../../redux/actions/index.js';
+import { useDispatch } from 'react-redux';
+import { 
+	addToCart,
+	removeFromCart,
+	calculateCartTotal, 
+} from '../../redux/actions/index.js';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import './CartItems.css';
 
-const CartItem = (props) => {
-	const { product, addToCart, removeFromCart, calculateCartTotal } = props;
+const CartItem = ({ product }) => {
+	const dispatch = useDispatch();
 
 	const calculateTotalForEachProduct = product => Math.round(product.price * product.amount);
 
 	const handleAddToCart = product => {
-		addToCart(product);
-		calculateCartTotal();
+		dispatch(addToCart(product));
+		dispatch(calculateCartTotal());
 	};
 
  	const handleRemoveItem = (id) => {
- 		removeFromCart(id);
-		calculateCartTotal();
+ 		dispatch(removeFromCart(id));
+		dispatch(calculateCartTotal());
 	};
 
 	return (
@@ -54,11 +58,4 @@ const CartItem = (props) => {
 	)
 }
 
-const mapDispatchToProps = {
-	calculateTotalForEachProduct,
-	calculateCartTotal,
-	removeFromCart,
-	addToCart,
-}
-
-export default connect(null, mapDispatchToProps)(CartItem);
+export default CartItem;

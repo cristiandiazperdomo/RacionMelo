@@ -1,10 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Card from '../../components/Card/Card.jsx'
 import useArrayCategories from '../../hooks/useArrayCategories.js';
 import './Categories.css';
 
-const Categories = ({ categories }) => {
+const Categories = () => {
+	const categories = useSelector(state => state.categories);
 
 	return (
 		<div className="categories-container">
@@ -25,10 +26,5 @@ const Categories = ({ categories }) => {
 	)
 }
 
-const mapStateToProps = state => {
-	return {
-		categories: state.categories, 
-	}
-}
 
-export default connect(mapStateToProps, null)(Categories);
+export default Categories;

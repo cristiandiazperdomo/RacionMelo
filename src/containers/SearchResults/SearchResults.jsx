@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { AiOutlineSearch } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
+import SearchResult from '../../components/SearchResult/SearchResult.jsx';
 import './SearchResults.css';
 
-const SearchResults = ({ articles, inputSearchValue }) => {
+const SearchResults = ({ inputSearchValue }) => {
 	const [searchs, setSearchs] = useState([]);
+	const articles = useSelector(state => state.articles);
 
 	useEffect(() => {
 		let newResults = [];
+		
 		articles.map(item => {
 			const values = inputSearchValue?.toLowerCase();
 			const addToSearchResults = values?.length > 0 ? item.name.toLowerCase().indexOf(values) : undefined;
@@ -23,36 +25,18 @@ const SearchResults = ({ articles, inputSearchValue }) => {
 			<div className="SearchResults-container">
 				<ul className="SearchResults-results">
 				{ searchs.length > 0 
-				?	searchs.map(article => 
-						<li key={article.id}>
-							<i>
-								<AiOutlineSearch />
-							</i>
-							<p>
-								{article.name}
-							</p>
-						</li>
-				)
-				:	articles.map(article => 
-						<li key={article.id}>
-							<i>
-								<AiOutlineSearch />
-							</i>
-							<p>
-								{article.name}
-							</p>
-						</li>
-				)}
+					?	searchs.map(article => 
+							<SearchResult article={article} /> 
+						)
+					:	articles.map(article => 
+							<SearchResult article={article} />
+						)
+				}
 				</ul>
 			</div>
 		</div>
 	)
 }
 
-const mapStateToProps = state => {
-	return {
-		articles: state.articles,
-	}
-}
 
-export default connect(mapStateToProps, null)(SearchResults);
+export default SearchResults;

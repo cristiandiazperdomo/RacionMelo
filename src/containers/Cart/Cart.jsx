@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { calculateCartTotal } from '../../redux/actions/index.js';
 import { Link } from 'react-router-dom';
 import { HiOutlineArrowNarrowLeft } from 'react-icons/hi'
@@ -7,17 +7,15 @@ import CartItem from '../../components/CartItems/CartItems.jsx';
 import EmptyShoppingCart from '../../assets/logos/dog-empty-shopping-cart.png';
 import './Cart.css';
 
-const Cart = (props) => {
+const Cart = () => {
 	const [isCart, setIsCart] = useState(false);
-	const { state, calculateCartTotal } = props;
-	const petFood = state;
+	const { cart, total, totalPlusShipping } = useSelector(state => state);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
-		petFood.cart.length > 0 ? setIsCart(true) : setIsCart(false);
-		calculateCartTotal(petFood.cart);
-
-		
-	}, [petFood.cart])
+		cart.length > 0 ? setIsCart(true) : setIsCart(false);
+		dispatch(calculateCartTotal(cart));
+	}, [cart]);
 
 	return (
 		<div className="Cart">
@@ -28,7 +26,7 @@ const Cart = (props) => {
 							Carrito de compras
 						</h3>
 						<h3>
-							{isCart ? petFood.cart.length : 'Sin'} items
+							{isCart ? cart.length : 'Sin'} items
 						</h3>
 					</header>
 					<div className="Cart-list">
@@ -44,7 +42,7 @@ const Cart = (props) => {
 						</div>
 						<div className="Cart-products">
 						{isCart ? 
-							petFood.cart.map(product => (
+							cart.map(product => (
 								<CartItem product={product} key={product.id}/>
 							))
 						: 	<img src={EmptyShoppingCart} alt="sin productos en el carrito" className="cart-no-products" />
@@ -62,8 +60,8 @@ const Cart = (props) => {
 					</header>
 					<div className="resume">
 						<div className="resume-top">
-							<p>{isCart ? petFood.cart.length : 'Sin'} items</p>
-							<p>${isCart ? petFood.total : 0 }</p>
+							<p>{isCart ? cart.length : 'Sin'} items</p>
+							<p>${isCart ? total : 0 }</p>
 						</div>
 						<div className="resume-mid">
 							<p>ENVÍO</p>
@@ -78,7 +76,7 @@ const Cart = (props) => {
 					<footer className="Cart-right-side-footer">
 						<div className="Cart-right-side-bottom-div">
 							<p>COSTO TOTAL</p>
-							<p>${isCart ? petFood.totalPlusShipping : 0 }</p>
+							<p>${isCart ? totalPlusShipping : 0 }</p>
 						</div>
 						<Link to="/shipmentstation">
 							<button>CONFIRMAR</button>
@@ -90,14 +88,4 @@ const Cart = (props) => {
 	)
 }
 
-const mapStateToProps = state => {
-	return {
-		state,
-	}
-}
- 
-const mapDispatchToProps = {
-	calculateCartTotal,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default Cart;

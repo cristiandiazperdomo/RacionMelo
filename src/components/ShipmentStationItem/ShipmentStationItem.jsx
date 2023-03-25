@@ -1,11 +1,9 @@
 import React from 'react';
 import './ShipmentStationItem.css';
 
-const ShipmentStationItem = (props) => {
-	const { product, calculateCartTotal } = props;
-
+const ShipmentStationItem = ({ product, calculateCartTotal }) => {
 	const calculateTotalForEachProduct = product => Math.round(product.price * product.amount);
-
+	
 	return (
 		<div className="ShipmentStationItem-container">
 			<div className="ShipmentStationItem">

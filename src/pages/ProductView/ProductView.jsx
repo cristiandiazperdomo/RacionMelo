@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';	
 import { 
 	addToCart, 
 	removeFromCart, 
 	calculateCartTotal,
-	getImageSource,
 } from '../../redux/actions/index.js';
 import { 
 	AiOutlinePlus,
@@ -13,30 +12,28 @@ import {
  	AiFillStar,
  	AiOutlineStar 
 } from 'react-icons/ai';
+import Comments from '../../containers/Comments/Comments.jsx';
 import { FaTruck } from 'react-icons/fa';
 import './ProductView.css';
 
-const ProductView = (props) => {
+const ProductView = () => {
 	const [product, setProduct] = useState([]);
 	const [productAmount, setProductAmount] = useState(0);
-	const { 
-		articles,
-		cart,
-		addToCart,
-		removeFromCart,
-	} = props;
+
+	const { articles, cart } = useSelector(state => state);
+	const dispatch = useDispatch();
 
 	const { id } = useParams();
 
 	useEffect(() => {
-		const isAlreadyInCart = cart.some(item => item.id === Number(id) + 1); //is the product in cart?
+		const isAlreadyInCart = cart.some(item => item.id === Number(id) + 1); //is the product in the cart?
 		if (isAlreadyInCart) {
 			const productos2 = cart.map(item => { // get from cart
-			if (item.id === Number(id) + 1) {
-				setProduct(item);
-				setProductAmount(item.amount);
-			}
-		})
+				if (item.id === Number(id) + 1) {
+					setProduct(item);
+					setProductAmount(item.amount);
+				}
+			})
 		} else {
 			const productos2 = articles.map(item => { // get from articles
 				if (item.id === Number(id) + 1) {
@@ -47,17 +44,16 @@ const ProductView = (props) => {
 	}, [id, cart, articles, product]);
 
 	const handleAddToCart = product => {
-		addToCart(product);
+		dispatch(addToCart(product));
 		setProductAmount(productAmount + 1)
-		calculateCartTotal();
+		dispatch(calculateCartTotal());
 	};
 
 	const handleRemoveItem = id => {
-		removeFromCart(id);
+		dispatch(removeFromCart(id));
 		setProductAmount(productAmount - 1)
-		calculateCartTotal();
+		dispatch(calculateCartTotal());
 	};
-
 
 	const { 
 		name,
@@ -172,20 +168,9 @@ const ProductView = (props) => {
 					</div>
 				</div>
 			</div>
+			<Comments />
 		</div>
 	)
 }
 
-const mapStateToProps = state => {
-	return {
-		articles: state.articles,
-		cart: state.cart
-	}
-}
-
-const mapDispatchToProps = {
-	addToCart,
-	removeFromCart,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductView);
+export default ProductView;

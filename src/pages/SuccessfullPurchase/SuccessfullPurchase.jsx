@@ -1,10 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import "./SuccessfullPurchase.css";
 import img from '../../assets/feed/young-horse2.png';
 
-const SuccessfullPurchase = (props) => {
-	const { cart } = props;
+const SuccessfullPurchase = () => {
+	const cart = useSelector(state => state.cart);
 
 	return (
 		<div className="SuccessfullPurchase">
@@ -21,7 +21,7 @@ const SuccessfullPurchase = (props) => {
 			</div>
 			<div className="SuccessfullPurchase-delivery">
 				{ cart.map(item => 
-					<div className="SuccessfullPurchase-type-delivery">
+					<div className="SuccessfullPurchase-type-delivery" key={item.id}>
 						<h4>Llega entre el 10 y el 14 de diciembre</h4>
 						<div className="SuccessfullPurchase-product-info">
 							<img src={item.urlImage} alt="producto" />
@@ -29,7 +29,7 @@ const SuccessfullPurchase = (props) => {
 						</div>
 					</div>
 				)}
-					{ true && /*solo un vendedor*/
+					{ true && /* solo un vendedor */
 					<div className="SuccessfullPurchase-seller">
 						<h4>Vendedor</h4>
 						<p>Cristian Díaz</p>
@@ -44,10 +44,4 @@ const SuccessfullPurchase = (props) => {
 	)
 }
 
-const mapStateToProps = state => {
-	return {
-		cart: state.cart,
-	}
-}
-
-export default connect(mapStateToProps, null)(SuccessfullPurchase);
+export default SuccessfullPurchase;

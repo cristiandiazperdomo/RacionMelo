@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import ArticlesCard from '../../components/ArticlesCard/ArticlesCard.jsx';
 import useArrayArticles from '../../hooks/useArrayArticles.js';
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md'
 import './Articles.css';
 
-const Articles = (props) => {
-	const [cart, setCart] = useState([]);
-
-	const { state, type, id } = props;
-
-	const petFood = state;
+const Articles = ({ type, id }) => {
+	const articles = useSelector(state => state.articles);
 
 	const scrollLeft = id => {
 		if (document.querySelector(`.articles-cards${id}`)) {
@@ -36,20 +32,13 @@ const Articles = (props) => {
 				onClick={() => scrollRight(id)} />
 			</div>
 			<div className={`articles-cards articles-cards${id}`}>
-				<ArticlesCard 
-					petFood={petFood}
-					cart={cart}
-					setCart={setCart}
-				/>
+				{ articles.map(article => 
+					// 43 is just a random number
+					<ArticlesCard article={article} key={(article.id + 43) * id}/>
+				)}
 			</div>
 		</div>
 	)
 }
 
-const mapStateToProps = state => {
-	return {
-		state,
-	}
-}
-
-export default connect(mapStateToProps, null)(Articles);
+export default Articles;

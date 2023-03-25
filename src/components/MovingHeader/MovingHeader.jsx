@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Search from '../Search/Search.jsx';
 import ProfileOptions from '../ProfileOptions/ProfileOptions.jsx';
 import MobileSearch from '../MobileSearch/MobileSearch.jsx';
@@ -13,10 +13,12 @@ import {
 } from 'react-icons/ai';
 import './MovingHeader.css';
 
-const MovingHeader = (props) => {
+const MovingHeader = ({ handleShowMenu }) => {
 	const [isLogged, setIsLogged] = useState(true);
 	const [isMoving, setIsMoving] = useState(false);
 	const [searchResultsActive, setSearchResultsActive] = useState(false);
+
+	const quantity = useSelector(state => state.cart.length)
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -103,7 +105,7 @@ const MovingHeader = (props) => {
 											<li>
 												<Link to="/payment">	
 													<AiOutlineShoppingCart className="cart-icon" />
-													<div className="cart-length cart-length-moving">{props.quantity > 0 ? props.quantity : 0}</div>
+													<div className="cart-length cart-length-moving">{quantity > 0 ? quantity : 0}</div>
 												</Link>
 											</li>
 											<li className="header-user">
@@ -124,7 +126,7 @@ const MovingHeader = (props) => {
 					<i onClick={isMobileMenuOpen}>
 						<AiOutlineSearch />
 					</i>		
-					<i onClick={props.handleShowMenu}>
+					<i onClick={handleShowMenu}>
 						<AiOutlineMenu />
 					</i>
 				</div>
@@ -134,10 +136,4 @@ const MovingHeader = (props) => {
 	)
 }
 
-const mapStateToProps = state => {
-	return {
-		quantity: state.cart.length,
-	}
-}
-
-export default connect(mapStateToProps, null)(MovingHeader)
+export default MovingHeader;

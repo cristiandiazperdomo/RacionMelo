@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { calculateCartTotal } from '../../redux/actions/index.js';
 import CartItems from '../../components/CartItems/CartItems.jsx';
 import ShipmentStationItem from '../../components/ShipmentStationItem/ShipmentStationItem.jsx';
@@ -10,17 +10,18 @@ import visa from '../../assets/logos/visa.png';
 import mastercard from '../../assets/logos/mastercard.svg';
 import './ShipmentStation.css';
 
-const ShipmentStation = (props) => {
+const ShipmentStation = () => {
 	const [modifyDeliveryUser, setModifyDeliveryUser] = useState(false);
 	const { 
 		cart, 
-		totalPlusShipping, 
-		calculateCartTotal,
+		totalPlusShipping,
 		deliveryInfo,
-	} = props;
+	} = useSelector(state => state);
+
+	const dispatch = useDispatch();
 
 	useEffect(() => {
-		calculateCartTotal(cart);
+		dispatch(calculateCartTotal(cart));
 	}, [])
 
 	return (
@@ -99,15 +100,15 @@ const ShipmentStation = (props) => {
 							<ul>
 								<li>
 									<input type="radio" id="moneywithdelivery" name="waytopay" />
-									<label for="moneywithdelivery" >Dinero con repartidor</label>
+									<label htmlFor="moneywithdelivery" >Dinero con repartidor</label>
 								</li>
 								<li>
 									<input type="radio" id="paypal" name="waytopay" />
-									<label for="paypal">Paypal</label>
+									<label htmlFor="paypal">Paypal</label>
 								</li>
 								<li>
 									<input type="radio" id="credit-card" name="waytopay" />
-									<label for="credit-card">Tarjeta de credito o debito</label>
+									<label htmlFor="credit-card">Tarjeta de credito o debito</label>
 								</li>
 							</ul>
 							<ul className="credit-card-info">
@@ -119,11 +120,11 @@ const ShipmentStation = (props) => {
 						<div className="Info-card">
 							<ul>
 								<li>
-									<label for="card-email">Email:</label>
+									<label htmlFor="card-email">Email:</label>
 									<input type="input" id="card-email" placeholder="Escribe aquí" />
 								</li>
 								<li>
-									<label for="card-name">Nombre de la tarjeta:</label>
+									<label htmlFor="card-name">Nombre de la tarjeta:</label>
 									<input type="input" id="card-name" placeholder="Escribe aquí" />
 								</li>
 							</ul>
@@ -147,16 +148,4 @@ const ShipmentStation = (props) => {
 	)
 }
 
-const mapStateToProps = state => {
-	return {
-		cart: state.cart,
-		totalPlusShipping: state.totalPlusShipping,
-		deliveryInfo: state.deliveryInfo,
-	}
-}
-
-const mapDispatchToProps = {
-	calculateCartTotal,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ShipmentStation)
+export default ShipmentStation;

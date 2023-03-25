@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Search from '../Search/Search.jsx';
 import ProfileOptions from '../ProfileOptions/ProfileOptions.jsx';
 import MobileSearch from '../MobileSearch/MobileSearch.jsx';
@@ -24,6 +24,8 @@ const Header = (props) => {
 
 	const areaDeBusquedaRef = useRef();
 
+	const quantity = useSelector(state => state.cart.length);
+
 	useEffect(() => {
 		const handleScroll = () => {
 		    if (window.pageYOffset > 48) {
@@ -38,9 +40,7 @@ const Header = (props) => {
 		};
 	}, [isMoving]);
 
-	const handleShowMenu = () => {
-		setShowMenu(!showMenu);
-	}
+	const handleShowMenu = () => setShowMenu(!showMenu);
 
 	const isMobileMenuOpen = () => {
 		const mobileSearch = document.querySelector('.mobile-search-container');
@@ -120,7 +120,7 @@ const Header = (props) => {
 												<li className="cart-icon-container">
 													<Link to="/payment">
 														<AiOutlineShoppingCart className="cart-icon" />
-														<div className="cart-length">{props.quantity > 0 ? props.quantity : 0}</div>
+														<div className="cart-length">{quantity > 0 ? quantity : 0}</div>
 													</Link>
 												</li>
 												<li className="header-user">
@@ -155,10 +155,4 @@ const Header = (props) => {
 	)
 }
 
-const mapStateToProps = state => {
-	return {
-		quantity: state.cart.length,
-	}
-}
-
-export default connect(mapStateToProps, null)(Header);
+export default Header;

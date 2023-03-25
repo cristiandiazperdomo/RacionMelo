@@ -1,13 +1,15 @@
 import React, { useState, useRef } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { addDeliveryInfo } from '../../redux/actions/index.js';
 import './DeliveryInfoModal.css';
 
-const DeliveryInfoModal = ({ deliveryInfo, addDeliveryInfo, setModifyDeliveryUser, modifyDeliveryUser }) => {
+const DeliveryInfoModal = ({ setModifyDeliveryUser, modifyDeliveryUser }) => {
+	const deliveryInfo = useSelector(state => state.deliveryInfo)
 	const [form, setForm] = useState(deliveryInfo);
 	const [isSaved, setIsSaved] = useState(true);
 	const formRef = useRef(null);
 
+	const dispatch = useDispatch();
 	const handleInput = event => {
 		setForm({
 			...form,
@@ -15,15 +17,11 @@ const DeliveryInfoModal = ({ deliveryInfo, addDeliveryInfo, setModifyDeliveryUse
 		})
 	}
 
-	console.log(isSaved);
-
 	const handleIsSaved = () => {
 		const toArrayDelivery = Object.entries(deliveryInfo)
 		const toArrayForm = Object.entries(deliveryInfo)
-		console.log(toArrayDelivery)
 		toArrayDelivery.map(info => {
 			toArrayForm.map(newInfo => {
-				console.log(info[1], newInfo[1], "comparación")
 				if (info[1] !== newInfo[1]) {
 					setIsSaved(false)
 				}
@@ -34,11 +32,10 @@ const DeliveryInfoModal = ({ deliveryInfo, addDeliveryInfo, setModifyDeliveryUse
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		addDeliveryInfo(form);
+		dispatch(addDeliveryInfo(form));
 	}
 
 	const goOutTheModal = () => {
-		console.log(handleIsSaved())
 		if (handleIsSaved()) {
 			setModifyDeliveryUser(!modifyDeliveryUser)
 		} else {
@@ -131,14 +128,4 @@ const DeliveryInfoModal = ({ deliveryInfo, addDeliveryInfo, setModifyDeliveryUse
 	)
 }
 
-const mapStateToProps = state => {
-	return {
-		deliveryInfo: state.deliveryInfo,
-	}
-}
-
-const mapDispatchToProps = {
-	addDeliveryInfo,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DeliveryInfoModal)
+export default DeliveryInfoModal;
