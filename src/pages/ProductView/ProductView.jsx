@@ -20,7 +20,9 @@ const ProductView = () => {
 	const [product, setProduct] = useState([]);
 	const [productAmount, setProductAmount] = useState(0);
 
-	const { articles, cart } = useSelector(state => state);
+	const { cart } = useSelector(state => state.cartReducer);
+	const { articles } = useSelector(state => state.itemReducer);
+
 	const dispatch = useDispatch();
 
 	const { id } = useParams();

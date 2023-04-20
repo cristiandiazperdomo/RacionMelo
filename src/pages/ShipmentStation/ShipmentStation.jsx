@@ -16,7 +16,7 @@ const ShipmentStation = () => {
 		cart, 
 		totalPlusShipping,
 		deliveryInfo,
-	} = useSelector(state => state);
+	} = useSelector(state => state.cartReducer);
 
 	const dispatch = useDispatch();
 

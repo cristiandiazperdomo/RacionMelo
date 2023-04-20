@@ -4,7 +4,7 @@ import "./SuccessfullPurchase.css";
 import img from '../../assets/feed/young-horse2.png';
 
 const SuccessfullPurchase = () => {
-	const cart = useSelector(state => state.cart);
+	const { cart } = useSelector(state => state.cartReducer);
 
 	return (
 		<div className="SuccessfullPurchase">

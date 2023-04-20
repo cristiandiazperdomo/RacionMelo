@@ -6,7 +6,7 @@ import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md'
 import './Articles.css';
 
 const Articles = ({ type, id }) => {
-	const articles = useSelector(state => state.articles);
+	const articles = useSelector(state => state.itemReducer.articles);
 
 	const scrollLeft = id => {
 		if (document.querySelector(`.articles-cards${id}`)) {

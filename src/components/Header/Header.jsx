@@ -24,7 +24,7 @@ const Header = (props) => {
 
 	const areaDeBusquedaRef = useRef();
 
-	const quantity = useSelector(state => state.cart.length);
+	const quantity = useSelector(state => state.cartReducer.cart.length);
 
 	useEffect(() => {
 		const handleScroll = () => {

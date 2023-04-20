@@ -5,7 +5,7 @@ import useArrayCategories from '../../hooks/useArrayCategories.js';
 import './Categories.css';
 
 const Categories = () => {
-	const categories = useSelector(state => state.categories);
+	const categories = useSelector(state => state.itemReducer.categories);
 
 	return (
 		<div className="categories-container">

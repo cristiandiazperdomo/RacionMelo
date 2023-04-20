@@ -5,8 +5,8 @@ import './SearchResults.css';
 
 const SearchResults = ({ inputSearchValue }) => {
 	const [searchs, setSearchs] = useState([]);
-	const articles = useSelector(state => state.articles);
-
+	const { articles } = useSelector(state => state.itemReducer);
+	
 	useEffect(() => {
 		let newResults = [];
 		

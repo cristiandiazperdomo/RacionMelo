@@ -1,5 +1,5 @@
 import React from 'react';
-import { TbChevronDownRight, TbAxisX, TbCornerDownRight, TbCurrencyLeu} from "react-icons/tb"; 
+import { TbCurrencyLeu} from "react-icons/tb"; 
 import "./SubComments.css";
 
 const SubComments = () => {

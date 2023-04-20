@@ -1,15 +1,26 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import SubComment from '../SubComments/SubComments.jsx';
 import './Comment.css';
 
-const Comment = () => {
+const Comment = (props) => {
+	const {
+		id,
+		comment_id,
+		user_comment, 
+		removeComments,
+		markACommentAsSpam,
+	} = props;
+
+	const { userInfo } = useSelector(state => state.userReducer);
+
 	return (
-		<div className="Comment">
+		<div className="Comment" id={id}>
 			<div className="Comment_container">
-				<p>Hola! Necesitaría para una fiesta que voy a hacer en Mayo 6 promos, 
-				de 3 pack cada una. Tengo que hacer de a una la compra? O lo puedo hacer 
-				todo junto?</p>
+				<p>{user_comment}</p>
 			</div>
+			{userInfo.id === id && <button onClick={() => removeComments(userInfo.id)}>DELETE!</button> }
+			<button onClick={() => markACommentAsSpam(comment_id)}>SPAM!</button>
 			<SubComment />
 		</div>
 	)

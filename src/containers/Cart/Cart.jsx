@@ -9,13 +9,15 @@ import './Cart.css';
 
 const Cart = () => {
 	const [isCart, setIsCart] = useState(false);
-	const { cart, total, totalPlusShipping } = useSelector(state => state);
+	const { cart, total, totalPlusShipping } = useSelector(state => state.cartReducer);
 	const dispatch = useDispatch();
+	console.log(cart)
 
 	useEffect(() => {
 		cart.length > 0 ? setIsCart(true) : setIsCart(false);
-		dispatch(calculateCartTotal(cart));
+		calculateCartTotal(cart);
 	}, [cart]);
+
 
 	return (
 		<div className="Cart">

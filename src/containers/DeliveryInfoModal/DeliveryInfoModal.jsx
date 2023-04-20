@@ -4,7 +4,7 @@ import { addDeliveryInfo } from '../../redux/actions/index.js';
 import './DeliveryInfoModal.css';
 
 const DeliveryInfoModal = ({ setModifyDeliveryUser, modifyDeliveryUser }) => {
-	const deliveryInfo = useSelector(state => state.deliveryInfo)
+	const { deliveryInfo } = useSelector(state => state.cartReducer)
 	const [form, setForm] = useState(deliveryInfo);
 	const [isSaved, setIsSaved] = useState(true);
 	const formRef = useRef(null);

@@ -18,7 +18,7 @@ const MovingHeader = ({ handleShowMenu }) => {
 	const [isMoving, setIsMoving] = useState(false);
 	const [searchResultsActive, setSearchResultsActive] = useState(false);
 
-	const quantity = useSelector(state => state.cart.length)
+	const quantity = useSelector(state => state.cartReducer.cart.length);
 
 	useEffect(() => {
 		const handleScroll = () => {
