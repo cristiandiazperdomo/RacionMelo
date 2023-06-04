@@ -1,5 +1,7 @@
 .Comments {
-
+	background-color: var(--white);
+    padding: 0 40px;
+    margin-bottom: 40px;
 }
 
 .Comments_container {

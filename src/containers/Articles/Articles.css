@@ -1,6 +1,6 @@
 .articles {
-	margin: 0 12px 20px;
 	box-sizing: border-box;
+	margin: 20px 140px;
 }
 
 .articles .articles-h3 {
@@ -9,15 +9,11 @@
 }
 
 .articles-cards-container {
-	display: flex;
+    display: flex;
     justify-content: space-between;
-    box-sizing: border-box;
-    position: absolute;
-    width: 99%;
-    height: 60px;
-    margin-left: -8px;
+	position: absolute;
+    width: calc(100% - 280px);
     margin-top: 140px;
-    align-items: center;
 }
 
 .articles-cards-container svg {
@@ -29,6 +25,14 @@
 	transition: .2s background-color;
 	transition: .2s color;
 	z-index: 2023;
+}
+
+.articles-cards-container svg:nth-child(1) {
+	margin-left: -16px;
+}
+
+.articles-cards-container svg:nth-child(2) {
+	margin-right: -16px;
 }
 
 .articles-cards-container svg:hover {
@@ -48,11 +52,40 @@
 	margin-right: 0;
 }
 
+@media all and (max-width: 1024px) {
+	.articles {
+		margin: 20px 20px;
+	}
+
+	.articles-cards-container {
+		width: calc(100% - 40px);
+	}
+}
+
+@media all and (max-width: 768px) {
+	.articles {
+        padding: 0 12px;
+	}
+}
+
 @media all and (max-width: 720px) {
+	.articles {
+		width: 100%;
+        padding: 0 12px;
+        box-sizing: border-box;
+	}
+	
 	.articles-cards-container {
 		display: none;
 	}
+
 	.articles-cards {
 		overflow-x: scroll;
+	}	
+}
+
+@media all and (max-width: 720px) {
+	.articles {
+		margin: 20px 0;
 	}	
 }

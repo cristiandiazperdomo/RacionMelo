@@ -44,6 +44,13 @@ export const addComment = payload => {
 	}
 }
 
+export const likedComment = payload => {
+	return {
+		type: 'LIKED_COMMENT',
+		payload,
+	}
+}
+
 export const removeComment = payload => {
 	return {
 		type: 'REMOVE_COMMENT',

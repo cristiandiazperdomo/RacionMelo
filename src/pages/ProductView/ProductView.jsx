@@ -19,7 +19,6 @@ import './ProductView.css';
 const ProductView = () => {
 	const [product, setProduct] = useState([]);
 	const [productAmount, setProductAmount] = useState(0);
-
 	const { cart } = useSelector(state => state.cartReducer);
 	const { articles } = useSelector(state => state.itemReducer);
 

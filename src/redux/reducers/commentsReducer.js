@@ -4,21 +4,25 @@ const initialCommentsState = {
     comments: [
         {
             user: "Ana",
+            likes: [],
             spam: 0,
             comment_id: uuidv4(),
             userComment: "Mi mascota se siente más saludable y activa desde que comenzó a usar este producto. ¡Lo recomiendo mucho!",
         }, {
             user: "Juan",
+            likes: [],
             spam: 0,
             comment_id: uuidv4(),
             userComment: "Desde que mi mascota comenzó a usar este producto, he notado una gran diferencia en su pelaje y piel. Definitivamente lo seguiré comprando.",
         }, {
             user: "María",
+            likes: [],
             spam: 0,
             comment_id: uuidv4(),
             userComment: "Estoy muy contenta con los resultados de este producto. Mi mascota está más animado y juega mucho más. ¡Gracias!",
         }, {
             user: "Carlos",
+            likes: [],
             spam: 0,
             comment_id: uuidv4(),
             userComment: "Mi mascota ha estado usando este producto durante unos meses y puedo ver una gran mejora en su energía y estado de ánimo. ¡Lo recomiendo mucho!",
@@ -49,9 +53,45 @@ const addToComments = (state, payload) => {
 const removeComment = (state, payload) => {
     return {
         ...state,
-        comments: state.comments.filter(comment => comment.id !== payload)
+        comments: state.comments.filter(comment => comment.comment_id !== payload)
     };
 };
+
+const likedComment = (state, payload) => {
+    const newState = {...state};
+    let hasCurrentUserLikedComment = false;
+    const comment = newState.comments.find(c => c.comment_id === payload.comment_id);
+    comment.likes.map(like => {
+    	if (like === payload.user_id) {
+    		hasCurrentUserLikedComment = true;
+    	}
+    });
+    if (hasCurrentUserLikedComment) { 
+    	// THE LIKE WILL BE DELETED FROM THE ARRAY LIKES
+	    const newArrayLikes = comment.likes.filter(like => like !== payload.user_id);
+	    const updatedComments = state.comments.map(c => {
+ 	        if (c.comment_id === payload.comment_id) {
+		       	return {
+		       		...c,
+		       		likes: newArrayLikes,	
+		       	}
+	       }
+	       return c;
+	    });
+	    newState.comments = updatedComments;
+		
+    } else {
+    	// THE LIKE WILL BE ADDED
+        comment.likes = [
+            ...comment.likes,
+            payload.user_id
+        ];
+    }
+    return {
+        ...state,
+        comments: newState.comments,
+    }
+}
 
 const markAsSpam = (state, payload) => {
     const newState = {...state}; 
@@ -91,6 +131,12 @@ export const commentsReducer = (state = initialCommentsState, action) => {
             return {
                 ...state,
                 comments: addToComments(state, action.payload).comments,
+            }
+        }
+        case 'LIKED_COMMENT': {
+            return {
+                ...state,
+                comments: likedComment(state, action.payload).comments,
             }
         }
         case 'REMOVE_COMMENT': {

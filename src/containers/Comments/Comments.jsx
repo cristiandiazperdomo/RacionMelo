@@ -1,27 +1,33 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { 
 	addComment, 
 	removeComment,
 	markAsSpam,
+	likedComment,
 } from '../../redux/actions';
 import Comment from '../../components/Comment/Comment.jsx';
 import { v4 as uuidv4 } from 'uuid';
 import './Comments.css';
 
 const Comments = () => {
+	const [showSpamModal, isShowSpamModal] = useState(false);
+	const [showRemoveModal, isShowRemoveModal] = useState(false);
+	
 	const { comments } = useSelector(state => state.commentsReducer);
 	const { userInfo } = useSelector(state => state.userReducer);
+
 	const dispatch = useDispatch();
 
 	const inputRef = useRef();
 
 	const addNewComment = () => {
-		const comment_id = uuidv4()
+		const comment_id = uuidv4();
 		
 		const newComment = {
             user_id: userInfo.id,
             comment_id,
+            likes: [],
             spam: 0,
             userComment: inputRef.current.value,
             user: userInfo.name,
@@ -35,6 +41,14 @@ const Comments = () => {
 
 	const markACommentAsSpam = (id) => {
 		dispatch(markAsSpam(id));
+	}
+
+	const handleLikedComment = (comment_id, user_id) => {
+		const userInfo = {
+			comment_id,
+			user_id,
+		}
+		dispatch(likedComment(userInfo));
 	}
 	
 	return (
@@ -59,17 +73,24 @@ const Comments = () => {
 				<div className="comments_section">
 				{ comments.map(userComment => (
 					<Comment 
-						id={userComment.id}
+						id={userComment.user_id}
 						comment_id={userComment.comment_id}
 						user_comment={userComment.userComment} 
+						likes={userComment.likes}
+						handleLikedComment={handleLikedComment}
 						removeComments={removeComments} 
 						markACommentAsSpam={markACommentAsSpam}
+						showSpamModal={showSpamModal}
+						isShowSpamModal={isShowSpamModal}
+						showRemoveModal={showRemoveModal}
+						isShowRemoveModal={isShowRemoveModal}
 						key={userComment.id}
 					/>
 				))}
 				</div>
 			</div>
 		</div>
+
 	)
 }
 

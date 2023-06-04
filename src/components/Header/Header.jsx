@@ -13,6 +13,7 @@ import {
 	AiOutlineShoppingCart,
 	AiOutlineUser,
 } from 'react-icons/ai';
+import { FaBox } from "react-icons/fa";
 import './Header.css';
 
 const Header = (props) => {
@@ -145,6 +146,32 @@ const Header = (props) => {
 							<AiOutlineMenu />
 						</i>
 					</div>
+				</div>
+				<div className="down-header">
+					<div className="ubication">
+						<i><FaBox /></i>
+						<p>Calle Evergreen Terrace 742</p>
+					</div>
+					<div className="nav-shop">
+						<ul>
+							<li>
+								<a>Servicio al Cliente</a>
+							</li>
+							<li>
+								<a>Más Vendidos</a>
+							</li>
+							<li>
+								<a>Nuevos lanzamientos</a>
+							</li>
+							<li>
+								<a>Ofertas del dia</a>
+							</li>
+							<li>
+								<a>Listas</a>
+							</li>
+						</ul>
+					</div>
+					<div></div>
 				</div>
 				<MobileSearch top={top} isMobileMenuOpen={isMobileMenuOpen} />
 				{showMenu && <MobileHeader handleShowMenu={handleShowMenu} />}

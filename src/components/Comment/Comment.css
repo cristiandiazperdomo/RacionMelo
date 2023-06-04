@@ -9,3 +9,39 @@
 .Comment_container p {
 	font-weight: 400;
 }
+
+.comment_buttons {
+	display: flex;
+	flex-direction: row;
+	margin-top: 12px;
+}
+
+.comment_buttons button p {
+	margin-left: 8px;
+	color: var(--main-bg-color);
+}
+
+.comment_buttons button {
+	display: flex;
+	align-items: center;
+	background-color: var(--white);
+	border: none;
+	color: var(--main-bg-color);
+	padding: 0 8px;
+	border: 1px solid var(--gray);
+	max-height: 100%;
+	min-height: 24px;
+}
+
+.comment_liked p {
+	margin-left: 8px;
+}
+
+.comment_trash svg {
+	font-size: 12px;
+}
+
+.mark_as_spam svg {
+	font-size: 16px;
+	margin-right: -2px;
+}

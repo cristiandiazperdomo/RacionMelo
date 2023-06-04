@@ -9,12 +9,6 @@ const MobileSearch = ({ moving, isMoving, isMobileMenuOpen }) => {
 	const [inputSearchValue, setInputSearchValue] = useState("");
 	const areaDeBusquedaRef = useRef();
 
-	const isSearchResultsActive = event => {
-		if (areaDeBusquedaRef.current && !areaDeBusquedaRef.current.contains(event.target)){
-			setSearchResultsActive(false);
-		}
-	}
-
 	const showInputSearchResults = () => {
 		setInputSearchValue(areaDeBusquedaRef.current.value)
 		if (areaDeBusquedaRef.current.value.length > 2) {
@@ -22,7 +16,13 @@ const MobileSearch = ({ moving, isMoving, isMobileMenuOpen }) => {
 		} else {
 			setSearchResultsActive(false);
 		}
-	} 
+	}
+
+	const isSearchResultsActive = event => {
+		if (areaDeBusquedaRef.current && !areaDeBusquedaRef.current.contains(event.target)){
+			setSearchResultsActive(false);
+		}
+	}
 
 	useEffect(() => {
 		document.addEventListener('click', isSearchResultsActive);

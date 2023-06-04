@@ -142,9 +142,11 @@
     background-color: var(--orange);
     height: 100%;
 }
+
 .ul-main-header li a {
     transition: .2s color;
 }
+
 .ul-main-header li a:hover {
     color: var(--white);
 }
@@ -186,6 +188,82 @@
     width: 24px;
 }
 
+.down-header {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    min-height: 40px;
+    max-height: 40px;
+    padding: 0 16px;
+    background-color: var(--white);
+}
+
+.down-header .ubication {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.down-header .ubication i {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.down-header .ubication p {
+    font-size: 12px;
+    color: rgba(0, 0, 0, .8);
+}
+
+.down-header .nav-shop {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    font-size: 12px;
+    width: 100%;
+    padding: 0;
+    color: rgba(0, 0, 0, .8);
+}
+
+.down-header .nav-shop ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-left: -60px;
+}
+
+.down-header .nav-shop ul li {
+    margin: 0 2px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s background-color;
+}
+
+.down-header .nav-shop ul li:hover {
+    color: var(--white);
+    background-color: var(--orange);
+    height: 100%;
+}
+
+.down-header .nav-shop ul li a {
+    padding: 8px 9px;
+}
+
+@media all and (max-width: 1024px) {
+    .down-header .nav-shop {
+        display: flex;
+        justify-content: flex-start;
+        padding: 0;
+    }
+
+    .down-header .nav-shop ul {
+        padding: 0;
+        margin-left: 24px;
+    }
+}
+
+
 @media all and (max-width: 767px) {
     .how-to-sell {
         display: none;
@@ -205,8 +283,13 @@
     .user-icon {
         display: block;
     }
-
 }
+
+@media all and (max-width: 720px) {
+    .down-header {
+        display: none;
+    }
+} 
 
 @media all and (max-width: 640px) {
     .main-header-container {
